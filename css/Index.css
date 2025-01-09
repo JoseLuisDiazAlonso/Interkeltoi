@@ -1,0 +1,75 @@
+/*Damos formato a la fuente*/
+
+@font-face {
+    font-family: 'longa_iberica';
+    src: url(../fonts/longa_iberica/LongaIberica-DEMO.ttf);
+}
+
+/*Header*/
+
+.header {
+    width: 90vw;
+    display: flex;
+    margin-left: 20px;
+}
+
+.header img {
+    margin-right: 15px;
+}
+
+.header h1 {
+    font-family: 'longa_iberica', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: green;
+}
+
+.navbar {
+    width: 90vw;
+    margin-top: 10px;
+    background: linear-gradient(to right, darkgreen, lightgreen);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*Damos formato para pantallas grandes*/
+
+@media screen and (min-width: 700px) and (max-width: 3270px) {
+
+.header {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.header h1 {
+    margin-left: 120px;
+}
+
+.navbar {
+    width: 100vw; /* Asegura que el navbar abarque todo el ancho de la ventana */
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0 10px; /* Agrega espacio interno de 10px a los lados */
+    background: linear-gradient(to right, darkgreen, lightgreen); /* Fondo de degradado */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido del navbar */
+    justify-content: space-between; /* Espacia los elementos del navbar */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.navbar a {
+    margin-left: 40px;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente todos los elementos dentro del contenedor */
+    justify-content: center; /* Centra verticalmente si es necesario */
+    max-width: 100%; /* Asegura que no haya restricciones en el ancho */
+    padding: 0;
+    margin: 0 auto; /* Centra el contenedor en pantallas grandes */
+    margin-top: 20px;
+}
+}
