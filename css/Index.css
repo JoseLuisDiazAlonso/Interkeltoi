@@ -10,6 +10,7 @@
 .header {
     width: 90vw;
     display: flex;
+    margin-top: 10px;
     margin-left: 20px;
 }
 
@@ -24,6 +25,8 @@
     color: green;
 }
 
+/*Menú*/
+
 .navbar {
     width: 90vw;
     margin-top: 10px;
@@ -33,43 +36,95 @@
     justify-content: space-around;
 }
 
+/*Galería de Fotos*/
+
+.carousel {
+    width: 90vw;
+}
+
+/*Texto Introductorio*/
+
+.introduccion {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.introduccion h1 {
+    font-family: 'longa_iberica', sans-serif;
+    font-weight: bolder;
+    color: black;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.introduccion p {
+    text-align: center;
+}
+
+.video-link {
+    display: inline-block;
+    width: 80vw;
+    height: 200px;
+    overflow: hidden; /*Ocultar partes fuera del área*/
+    border: 2px solid #333; /*Borde decorativo*/
+    border-radius: 8px; 
+}
+
+.video-link video {
+    width: 100vw;
+    height: auto;
+    object-fit: cover; /*Aseguramos que el video se ajuste correctamente*/
+    object-position: 50% 10%; /*Mostramos una parte especifica del video*/
+    cursor: pointer; /*Cambiamos el cursor al pasar por el video.*/
+}
+
 /*Damos formato para pantallas grandes*/
 
 @media screen and (min-width: 700px) and (max-width: 3270px) {
 
-.header {
-    margin-top: 20px;
-    margin-left: 40px;
-}
+    .header {
+        margin-top: 20px;
+        margin-left: 40px;
+    }
 
-.header h1 {
-    margin-left: 120px;
-}
+    .header h1 {
+        margin-left: 120px;
+    }
 
-.navbar {
-    width: 100vw; /* Asegura que el navbar abarque todo el ancho de la ventana */
-    margin: 0; /* Elimina márgenes externos */
-    padding: 0 10px; /* Agrega espacio interno de 10px a los lados */
-    background: linear-gradient(to right, darkgreen, lightgreen); /* Fondo de degradado */
-    display: flex;
-    align-items: center; /* Centra verticalmente el contenido del navbar */
-    justify-content: space-between; /* Espacia los elementos del navbar */
-    box-sizing: border-box; /* Incluye el padding en el ancho total */
-}
+    .navbar {
+        width: 100vw;
+        /* Asegura que el navbar abarque todo el ancho de la ventana */
+        margin: 0;
+        /* Elimina márgenes externos */
+        padding: 0 10px;
+        /* Agrega espacio interno de 10px a los lados */
+        background: linear-gradient(to right, darkgreen, lightgreen);
+        /* Fondo de degradado */
+        display: flex;
+        align-items: center;
+        /* Centra verticalmente el contenido del navbar */
+        justify-content: space-between;
+        /* Espacia los elementos del navbar */
+        box-sizing: border-box;
+        /* Incluye el padding en el ancho total */
+    }
 
-.navbar a {
-    margin-left: 40px;
-}
+    .navbar a {
+        margin-left: 40px;
+    }
 
-/* Contenedor principal */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente todos los elementos dentro del contenedor */
-    justify-content: center; /* Centra verticalmente si es necesario */
-    max-width: 100%; /* Asegura que no haya restricciones en el ancho */
-    padding: 0;
-    margin: 0 auto; /* Centra el contenedor en pantallas grandes */
-    margin-top: 20px;
-}
+    /* Contenedor principal */
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centra horizontalmente todos los elementos dentro del contenedor */
+        justify-content: center;
+        /* Centra verticalmente si es necesario */
+        max-width: 100%;
+        /* Asegura que no haya restricciones en el ancho */
+        padding: 0;
+        margin: 0 auto;
+        /* Centra el contenedor en pantallas grandes */
+        margin-top: 20px;
+    }
 }
