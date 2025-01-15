@@ -11,7 +11,7 @@
     width: 90vw;
     display: flex;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .header img {
@@ -60,21 +60,51 @@
     text-align: center;
 }
 
-.video-link {
-    display: inline-block;
-    width: 80vw;
-    height: 200px;
-    overflow: hidden; /*Ocultar partes fuera del área*/
-    border: 2px solid #333; /*Borde decorativo*/
-    border-radius: 8px; 
+.introduccion,
+.samain {
+    margin: 50px auto;
+    text-align: center;
 }
 
-.video-link video {
-    width: 100vw;
-    height: auto;
-    object-fit: cover; /*Aseguramos que el video se ajuste correctamente*/
-    object-position: 50% 10%; /*Mostramos una parte especifica del video*/
-    cursor: pointer; /*Cambiamos el cursor al pasar por el video.*/
+/*Efecto de revelado*/
+.reveal {
+    opacity: 0;
+    /*Completamente invisible*/
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    /*Transicción suave*/
+    transform: translateY(20px);
+    /*Ligeramente desplazado hacia abajo*/
+}
+
+.reveal.visible {
+    opacity: 1;
+    /*Totalmente visible*/
+    transform: translateY(0);
+    /*Sin desplazamiento*/
+}
+
+/*Estilo para la línea divisoria*/
+.divider img {
+    width: 90vw;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+/*Animación*/
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+
+    }
 }
 
 /*Damos formato para pantallas grandes*/
