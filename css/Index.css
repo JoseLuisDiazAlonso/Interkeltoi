@@ -10,8 +10,23 @@
 .header {
     width: 90vw;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
     margin-left: 30px;
+}
+
+/*Selector de Lenguaje*/
+.language-selector {
+    display: flex;
+    align-items: center;
+    /*Alinea los iconos de idioma verticalmente al centro*/
+    gap: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .header img {
@@ -21,8 +36,18 @@
 .header h1 {
     font-family: 'longa_iberica', sans-serif;
     font-weight: bolder;
-    font-size: 60px;
+    font-size: 50px;
     color: green;
+    margin-right: 15px;
+}
+
+.icon {
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#content {
+    padding: 20px;
 }
 
 /*Menú*/
@@ -58,6 +83,8 @@
 
 .introduccion p {
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .introduccion,
@@ -67,6 +94,11 @@
 }
 
 /*Efecto de revelado*/
+.samain p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
 .reveal {
     opacity: 0;
     /*Completamente invisible*/
@@ -91,6 +123,14 @@
 
 }
 
+.samain button {
+    width: 60vw;
+    border-radius: 10px;
+    background-color: rgb(150, 234, 150);
+    font-weight: bolder;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 /*Animación*/
 @keyframes reveal {
     0% {
@@ -107,13 +147,108 @@
     }
 }
 
+/*Damos formato al footer*/
+
+.quienes_somos,
+.contacto,
+.ultimas_noticias {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.phone,
+.fax,
+.email,
+.location {
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+footer {
+    background: linear-gradient(to right, darkgreen, lightgreen);
+    margin-top: 20px;
+}
+
+h2 {
+    font-family: 'longa_iberica', sans-serif;
+    font-size: 40px;
+    color: red;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+li {
+    color: black;
+}
+
+.tweet_text a {
+    text-decoration: none;
+    color: black;
+}
+
+.tweet_time {
+    color: orange;
+}
+
+/*Damos formato a la estructura de la política de privacidad, el aviso legal y las Cookies*/
+.conditions {
+    list-style-type: none;
+
+}
+
+.conditions a {
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    padding: 10px 15px;
+    /*Relleno interno para aumentar el área clicable*/
+    display: block;
+}
+
+.logo {
+    padding-bottom: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.logo img {
+    margin-left: 40px;
+}
+
+/*Damos formato al estilo del cuadro de aceptar Cookies*/
+
+#cookieConsent {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    background: rgba(250, 236, 236, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+#acceptCookies {
+    background: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
 /*Damos formato para pantallas grandes*/
 
 @media screen and (min-width: 700px) and (max-width: 3270px) {
 
     .header {
+        width: 90vw;
         margin-top: 20px;
-        margin-left: 40px;
+        margin-left: 70px;
     }
 
     .header h1 {
@@ -121,7 +256,7 @@
     }
 
     .navbar {
-        width: 100vw;
+        width: 90vw;
         /* Asegura que el navbar abarque todo el ancho de la ventana */
         margin: 0;
         /* Elimina márgenes externos */
@@ -156,5 +291,103 @@
         margin: 0 auto;
         /* Centra el contenedor en pantallas grandes */
         margin-top: 20px;
+    }
+
+    /*Animación*/
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+
+        }
+    }
+
+    /*footer*/
+
+    footer>div {
+        margin: 10px;
+    }
+
+    /*Usamos flexbox solo en main-sections*/
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .main-sections {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+        /*Distribuye uniformemente las secciones*/
+        align-items: flex-start;
+        /*alinea la secciones por la parte superior*/
+        flex-wrap: wrap;
+        /*permite que se reorganicen en pantallas pequeñas*/
+    }
+
+    .main-sections .quienes_somos,
+    .main-sections .contacto,
+    .main-sections .noticias {
+        flex: 1;
+        /*Cada sección tendrá el mismo ancho*/
+    }
+
+    .Samain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: center;
+    }
+
+    /*Estilos para las listas*/
+
+    .legal_conditions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+
+    }
+
+    .conditions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /*Estilos para los elementos de las listas*/
+
+    .conditions li {
+        margin-right: 15px;
+        /*Espaciado entre los elementos de la lista*/
+    }
+
+    #cookieConsent {
+        width: 40vw;
+        top: 50%;
+        left: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+        /*Ajuste para centrar*/
+        text-align: center;
+        margin-top: 120px;
     }
 }
