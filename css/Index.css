@@ -5,6 +5,10 @@
     src: url(../fonts/longa_iberica/LongaIberica-DEMO.ttf);
 }
 
+body {
+    margin-left: 10px;
+}
+
 /*Header*/
 
 .header {
@@ -13,7 +17,7 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
-    margin-left: 30px;
+    margin-left: 17px;
 }
 
 /*Selector de Lenguaje*/
@@ -30,15 +34,15 @@
 }
 
 .header img {
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .header h1 {
     font-family: 'longa_iberica', sans-serif;
     font-weight: bolder;
     font-size: 50px;
-    color: green;
-    margin-right: 15px;
+    color: rgb(4, 142, 126);
+    margin-right: 10px;
 }
 
 .icon {
@@ -55,11 +59,46 @@
 .navbar {
     width: 90vw;
     margin-top: 10px;
-    background: linear-gradient(to right, darkgreen, lightgreen);
+    background: linear-gradient(to right, rgb(4, 135, 122), rgb(5, 219, 197));
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bolder;
+}
+
+/* Hace que los enlaces del menú principal sean blancos */
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+/* Cambia el color del texto dentro del menú desplegable a blanco */
+.dropdown-menu .dropdown-item {
+    color: white !important;
+    text-align: left;
+    /* Centra el texto */
+    padding: 0;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+/* Cambia el fondo del menú desplegable a turquesa */
+.dropdown-menu {
+    background-color: rgb(64, 224, 208);
+    border: none;
+    /* Ajusta el ancho del menú */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre los elementos */
+.dropdown-menu .dropdown-item:hover {
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Turquesa más claro */
+}
+
 
 /*Galería de Fotos*/
 
@@ -126,7 +165,7 @@
 .samain button {
     width: 60vw;
     border-radius: 10px;
-    background-color: rgb(150, 234, 150);
+    background-color: rgb(64, 224, 208);
     font-weight: bolder;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -164,8 +203,12 @@
     margin-left: 10px;
 }
 
+.main-sections p {
+    color: white;
+}
+
 footer {
-    background: linear-gradient(to right, darkgreen, lightgreen);
+    background: linear-gradient(to right, rgb(4, 135, 122), rgb(5, 219, 197));
     margin-top: 20px;
 }
 
@@ -183,12 +226,12 @@ p {
 }
 
 li {
-    color: black;
+    color: white;
 }
 
 .tweet_text a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .tweet_time {
@@ -203,7 +246,7 @@ li {
 
 .conditions a {
     text-decoration: none;
-    color: rgb(50, 50, 50);
+    color: rgb(243, 238, 238);
     padding: 10px 15px;
     /*Relleno interno para aumentar el área clicable*/
     display: block;
@@ -225,15 +268,19 @@ li {
     display: none;
     position: fixed;
     bottom: 20px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
     background: rgba(250, 236, 236, 0.8);
     color: white;
     padding: 15px;
+    margin-right: 10px;
     border-radius: 10px;
     z-index: 1000;
 }
 
 #acceptCookies {
-    background: green;
+    background-color: rgb(64, 224, 208);
     color: white;
     border: none;
     padding: 10px;
@@ -248,11 +295,20 @@ li {
     .header {
         width: 90vw;
         margin-top: 20px;
-        margin-left: 70px;
+        margin: auto;
     }
 
     .header h1 {
-        margin-left: 120px;
+        font-size: 70px;
+    }
+
+    .header img {
+        height: 70px;
+        margin-left: 15px;
+    }
+
+    .lenguage-selector {
+        margin-right: 15px;
     }
 
     .navbar {
@@ -262,7 +318,7 @@ li {
         /* Elimina márgenes externos */
         padding: 0 10px;
         /* Agrega espacio interno de 10px a los lados */
-        background: linear-gradient(to right, darkgreen, lightgreen);
+        background: linear-gradient(to right, rgb(4, 135, 122), rgb(5, 219, 197));
         /* Fondo de degradado */
         display: flex;
         align-items: center;
@@ -275,6 +331,33 @@ li {
 
     .navbar a {
         margin-left: 40px;
+    }
+
+    /* Asegurando que el navbar y el carrusel tengan el mismo ancho */
+    .navbar,
+    .carousel {
+        width: 90vw;
+        /* Hace que el carrusel tenga el mismo ancho que el navbar */
+        margin: 0 auto;
+        /* Centra el carrusel */
+        margin-top: 10px;
+    }
+
+    /* Ajusta las imágenes para que tengan un ancho 100% sin distorsión */
+    .carousel-inner img {
+        width: 100%;
+        /* Ocupa todo el ancho del carrusel */
+        height: auto;
+        /* Mantiene la proporción */
+        object-fit: cover;
+        /* Se asegura que la imagen cubra todo el área del carrusel */
+    }
+
+    /* Opcional: Efecto al pasar el mouse por encima de los botones */
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Fondo más oscuro en hover */
     }
 
     /* Contenedor principal */
@@ -292,6 +375,22 @@ li {
         /* Centra el contenedor en pantallas grandes */
         margin-top: 20px;
     }
+
+    /*Imágen de Samain*/
+    .divider {
+        text-align: center;
+        /* Centra la imagen horizontalmente */
+    }
+
+    .divider img {
+        max-width: 50%;
+        /* Ajusta el tamaño de la imagen sin afectar la proporción */
+        height: auto;
+        /* Mantiene la proporción de la imagen */
+        display: inline-block;
+        /* Hace que la imagen se comporta como un bloque, pero centrada */
+    }
+
 
     /*Animación*/
     @keyframes reveal {
