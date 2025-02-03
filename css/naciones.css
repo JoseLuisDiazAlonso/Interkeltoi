@@ -1,0 +1,405 @@
+/*Damos formato a la fuente*/
+
+@font-face {
+    font-family: 'longa_iberica';
+    src: url(../fonts/longa_iberica/LongaIberica-DEMO.ttf);
+}
+
+body {
+    margin-left: 10px;
+}
+
+/*Header*/
+
+.header {
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 17px;
+}
+
+/*Selector de Lenguaje*/
+.language-selector {
+    display: flex;
+    align-items: center;
+    /*Alinea los iconos de idioma verticalmente al centro*/
+    gap: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.header img {
+    margin-right: 10px;
+}
+
+.header h1 {
+    font-family: 'longa_iberica', sans-serif;
+    font-weight: bolder;
+    font-size: 50px;
+    color: rgb(4, 142, 126);
+    margin-right: 10px;
+}
+
+.icon {
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#content {
+    padding: 20px;
+}
+
+/*Menú*/
+
+.navbar {
+    width: 90vw;
+    margin-top: 10px;
+    background: linear-gradient(to right, rgb(4, 135, 122), rgb(5, 219, 197));
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bolder;
+}
+
+/* Hace que los enlaces del menú principal sean blancos */
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+/* Cambia el color del texto dentro del menú desplegable a blanco */
+.dropdown-menu .dropdown-item {
+    color: white !important;
+    text-align: left;
+    /* Centra el texto */
+    padding: 0;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+/* Cambia el fondo del menú desplegable a turquesa */
+.dropdown-menu {
+    background-color: rgb(64, 224, 208);
+    border: none;
+    /* Ajusta el ancho del menú */
+}
+
+/* Cambia el color de fondo cuando se pasa el mouse sobre los elementos */
+.dropdown-menu .dropdown-item:hover {
+    width: auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Turquesa más claro */
+}
+
+/*Damos formato al resto del body*/
+
+.naciones p {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+.figure img {
+    border-radius: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.listas li {
+    color: black;
+}
+
+/*Damos formato al footer*/
+
+.quienes_somos,
+.contacto,
+.ultimas_noticias {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.phone,
+.fax,
+.email,
+.location {
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+.main-sections p {
+    color: white;
+}
+
+footer {
+    background: linear-gradient(to right, rgb(4, 135, 122), rgb(5, 219, 197));
+    margin-top: 20px;
+}
+
+h2 {
+    font-family: 'longa_iberica', sans-serif;
+    font-size: 40px;
+    color: red;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+li {
+    color: white;
+}
+
+.tweet_text a {
+    text-decoration: none;
+    color: white;
+}
+
+.tweet_time {
+    color: orange;
+}
+
+/*Damos formato a la estructura de la política de privacidad, el aviso legal y las Cookies*/
+.conditions {
+    list-style-type: none;
+
+}
+
+.conditions a {
+    text-decoration: none;
+    color: rgb(243, 238, 238);
+    padding: 10px 15px;
+    /*Relleno interno para aumentar el área clicable*/
+    display: block;
+}
+
+.logo {
+    padding-bottom: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.logo img {
+    margin-left: 40px;
+}
+
+/*Damos formato para pantallas grandes*/
+
+@media screen and (min-width: 700px) and (max-width: 3270px) {
+
+    .header {
+        width: 90vw;
+        margin-top: 20px;
+        margin: auto;
+    }
+
+    .header h1 {
+        font-size: 70px;
+    }
+
+    .header img {
+        height: 70px;
+        margin-left: 15px;
+    }
+
+    .lenguage-selector {
+        margin-right: 15px;
+    }
+
+    .navbar {
+        width: 90vw;
+        /* Asegura que el navbar abarque todo el ancho de la ventana */
+        margin: 0;
+        /* Elimina márgenes externos */
+        padding: 0 10px;
+        /* Agrega espacio interno de 10px a los lados */
+        background: linear-gradient(to right, rgb(4, 135, 122), rgb(5, 219, 197));
+        /* Fondo de degradado */
+        display: flex;
+        align-items: center;
+        /* Centra verticalmente el contenido del navbar */
+        justify-content: space-between;
+        /* Espacia los elementos del navbar */
+        box-sizing: border-box;
+        /* Incluye el padding en el ancho total */
+    }
+
+    .navbar a {
+        margin-left: 40px;
+    }
+
+    /* Asegurando que el navbar y el carrusel tengan el mismo ancho */
+    .navbar,
+    .carousel {
+        width: 90vw;
+        /* Hace que el carrusel tenga el mismo ancho que el navbar */
+        margin: 0 auto;
+        /* Centra el carrusel */
+        margin-top: 10px;
+    }
+
+    /* Ajusta las imágenes para que tengan un ancho 100% sin distorsión */
+    .carousel-inner img {
+        width: 100%;
+        /* Ocupa todo el ancho del carrusel */
+        height: auto;
+        /* Mantiene la proporción */
+        object-fit: cover;
+        /* Se asegura que la imagen cubra todo el área del carrusel */
+    }
+
+    /* Opcional: Efecto al pasar el mouse por encima de los botones */
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Fondo más oscuro en hover */
+    }
+
+    /* Contenedor principal */
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centra horizontalmente todos los elementos dentro del contenedor */
+        justify-content: center;
+        /* Centra verticalmente si es necesario */
+        max-width: 100%;
+        /* Asegura que no haya restricciones en el ancho */
+        padding: 0;
+        margin: 0 auto;
+        /* Centra el contenedor en pantallas grandes */
+        margin-top: 20px;
+    }
+
+    /*Animación*/
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+
+        }
+    }
+
+    .naciones {
+        display: block;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+    }
+
+    .naciones p {
+        width: 80vw;
+        margin-left: 40px;
+    }
+
+    .figure img {
+        display: flex;
+        height: 150px;
+        margin-left: 60px;
+        align-items: center;
+        align-content: center;
+    }
+
+    .listas ul {
+        padding-left: 20px;
+        /*Ajusta la distancia entre los puntos y el texto*/
+        margin-left: 20px;
+        /*Sangría general para que no esté pegado a la izquierda*/
+        list-style-position: inside;
+        /*Hace que los puntos estén más cerca del texto*/
+        text-align: left;
+    }
+
+    .listas li {
+        color: black;
+        text-align: justify;
+        padding-left: 40px;
+    }
+
+    /*footer*/
+
+    footer>div {
+        margin: 10px;
+    }
+
+    /*Usamos flexbox solo en main-sections*/
+
+    footer {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .main-sections {
+        width: 90vw;
+        display: flex;
+        justify-content: space-between;
+        /*Distribuye uniformemente las secciones*/
+        align-items: flex-start;
+        /*alinea la secciones por la parte superior*/
+        flex-wrap: wrap;
+        /*permite que se reorganicen en pantallas pequeñas*/
+    }
+
+    .main-sections .quienes_somos,
+    .main-sections .contacto,
+    .main-sections .noticias {
+        flex: 1;
+        /*Cada sección tendrá el mismo ancho*/
+    }
+
+    .Samain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
+        text-align: center;
+    }
+
+    /*Estilos para las listas*/
+
+    .legal_conditions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+
+    }
+
+    .conditions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    /*Estilos para los elementos de las listas*/
+
+    .conditions li {
+        margin-right: 15px;
+        /*Espaciado entre los elementos de la lista*/
+    }
+}
