@@ -437,7 +437,7 @@ li {
 
     .main-sections .quienes_somos,
     .main-sections .contacto,
-    .main-sections .noticias {
+    .main-sections .ultimas_noticias {
         flex: 1;
         /*Cada sección tendrá el mismo ancho*/
     }

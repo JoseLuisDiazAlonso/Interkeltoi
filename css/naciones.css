@@ -146,6 +146,7 @@ body {
 .ultimas_noticias {
     display: inline-block;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .phone,
@@ -260,46 +261,16 @@ li {
         margin-left: 40px;
     }
 
-    /* Asegurando que el navbar y el carrusel tengan el mismo ancho */
-    .navbar,
-    .carousel {
-        width: 90vw;
-        /* Hace que el carrusel tenga el mismo ancho que el navbar */
-        margin: 0 auto;
-        /* Centra el carrusel */
-        margin-top: 10px;
-    }
-
-    /* Ajusta las imágenes para que tengan un ancho 100% sin distorsión */
-    .carousel-inner img {
-        width: 100%;
-        /* Ocupa todo el ancho del carrusel */
-        height: auto;
-        /* Mantiene la proporción */
-        object-fit: cover;
-        /* Se asegura que la imagen cubra todo el área del carrusel */
-    }
-
-    /* Opcional: Efecto al pasar el mouse por encima de los botones */
-    .carousel-control-prev:hover,
-    .carousel-control-next:hover {
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Fondo más oscuro en hover */
-    }
-
     /* Contenedor principal */
     .container {
+        width: 90vw;
         display: flex;
         flex-direction: column;
         align-items: center;
         /* Centra horizontalmente todos los elementos dentro del contenedor */
         justify-content: center;
         /* Centra verticalmente si es necesario */
-        max-width: 100%;
-        /* Asegura que no haya restricciones en el ancho */
-        padding: 0;
-        margin: 0 auto;
-        /* Centra el contenedor en pantallas grandes */
+        text-align: justify;
         margin-top: 20px;
     }
 
@@ -317,18 +288,6 @@ li {
             transform: translateY(0);
 
         }
-    }
-
-    .naciones {
-        display: block;
-        align-items: center;
-        align-content: center;
-        text-align: center;
-    }
-
-    .naciones p {
-        width: 80vw;
-        margin-left: 40px;
     }
 
     .figure img {
@@ -355,6 +314,24 @@ li {
         padding-left: 40px;
     }
 
+    #texto1 {
+        text-align: justify;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #texto2 {
+        text-align: justify;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #texto3 {
+        text-align: justify;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
     /*footer*/
 
     footer>div {
@@ -374,31 +351,39 @@ li {
 
     .main-sections {
         width: 90vw;
-        display: flex;
-        justify-content: space-between;
-        /*Distribuye uniformemente las secciones*/
-        align-items: flex-start;
-        /*alinea la secciones por la parte superior*/
-        flex-wrap: wrap;
-        /*permite que se reorganicen en pantallas pequeñas*/
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Crea tres columnas del mismo tamaño */
+        gap: 20px;
+        /* Espacio de 10px entre columnas */
+        padding-left: 20px;
     }
 
-    .main-sections .quienes_somos,
-    .main-sections .contacto,
-    .main-sections .noticias {
-        flex: 1;
-        /*Cada sección tendrá el mismo ancho*/
+    .phone,
+    .fax,
+    .email,
+    .location {
+        display: block;
     }
 
-    .Samain {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        margin-left: 40px;
-        margin-right: 40px;
-        text-align: center;
+    .phone img,
+    .phone p {
+        display: inline-flex;
+    }
+
+    .fax img,
+    .fax p {
+        display: inline-flex;
+    }
+
+    .email img,
+    .email p {
+        display: inline-flex;
+    }
+
+    .location img,
+    .location p {
+        display: inline-flex;
     }
 
     /*Estilos para las listas*/
@@ -426,4 +411,16 @@ li {
         margin-right: 15px;
         /*Espaciado entre los elementos de la lista*/
     }
+
+    #cookieConsent {
+        width: 40vw;
+        top: 50%;
+        left: 50%;
+        bottom: auto;
+        transform: translate(-50%, -50%);
+        /*Ajuste para centrar*/
+        text-align: center;
+        margin-top: 120px;
+    }
+
 }
