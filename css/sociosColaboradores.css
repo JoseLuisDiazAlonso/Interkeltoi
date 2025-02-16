@@ -109,6 +109,42 @@ body {
     box-shadow: rgba(0, 0, 0, 0.3);
 }
 
+.presentacionSocios p {
+    text-align: justify;
+    margin-top: 10px;
+}
+
+/*Distribuimos los diferentes logos*/
+
+.sociosColaboradores {
+    display: flex;
+    justify-content: center;
+    /*Centra horizontalmente los cards*/
+    gap: 20px;
+    flex-wrap: wrap;
+    /*Permite que los cards se ajusten a nuevas líneas si es necesario*/
+    padding: 20px;
+}
+
+.card {
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.card-img-top {
+    width: 90%;
+    /*Aseguramos que la imágen ocupe todo el ancho del contenedor*/
+    height: 150px;
+    /*Define una altura fija para las imágenes*/
+}
+
+.card-body a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+}
+
 /*Damos formato al footer*/
 
 .quienes_somos,
