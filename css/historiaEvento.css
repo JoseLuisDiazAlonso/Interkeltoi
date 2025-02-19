@@ -13,7 +13,7 @@ body {
 /*Header*/
 
 .header {
-    width: 90vw;
+    width: 80vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -109,13 +109,17 @@ body {
     text-align: center;
 }
 
-/*Centramos el mapa*/
+/*Texto descriptivo*/
 
-#map {
+.historiaEvento p {
     width: 90vw;
-    margin-top: 10px;
-    height: 280px;
+    text-align: justify;
 
+}
+
+.historiaEvento h3 {
+    width: 90vw;
+    text-align: center;
 }
 
 /*Damos formato al footer*/
@@ -220,11 +224,9 @@ li {
     border-radius: 5px;
 }
 
-
 /*Damos formato para pantallas grandes*/
 
 @media screen and (min-width: 700px) and (max-width: 3270px) {
-
     body {
         width: 90vw;
         margin: auto;
@@ -432,5 +434,4 @@ li {
         text-align: center;
         margin-top: 120px;
     }
-
 }
