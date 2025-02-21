@@ -110,7 +110,6 @@ body {
 }
 
 /*Texto descriptivo*/
-
 .historiaEvento p {
     width: 90vw;
     text-align: justify;
@@ -120,6 +119,24 @@ body {
 .historiaEvento h3 {
     width: 90vw;
     text-align: center;
+}
+
+/*Imágen en textos explicativos*/
+
+#imagen1 {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#imagen2 {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /*Damos formato al footer*/
@@ -229,13 +246,11 @@ li {
 @media screen and (min-width: 700px) and (max-width: 3270px) {
     body {
         width: 90vw;
-        margin: auto;
     }
 
     .header {
         width: 90vw;
         margin-top: 20px;
-        margin: auto;
     }
 
     .header h1 {
@@ -342,6 +357,21 @@ li {
         text-align: justify;
         margin-left: 30px;
         margin-right: 30px;
+    }
+
+    #imagen1 {
+        float: left;
+        margin: 10px;
+        max-width: 30%;
+        /*tamaño reducido para pantallas grandes*/
+        height: auto;
+    }
+
+    #imagen2 {
+        float: right;
+        margin: 10px;
+        max-width: 30%;
+        height: auto;
     }
 
     /*footer*/
