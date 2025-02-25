@@ -170,6 +170,40 @@ body {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+/*Damos formato al video*/
+
+.video-container {
+    position: relative;
+    width: 90vw;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 90vw;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 15px 20px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.play-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 /*Animación*/
 @keyframes reveal {
     0% {
@@ -379,17 +413,29 @@ li {
     .divider {
         text-align: center;
         /* Centra la imagen horizontalmente */
+        gap: 20px;
+    }
+
+    .divider,
+    .video-container {
+        display: inline-flex;
     }
 
     .divider img {
-        max-width: 50%;
+        max-width: 30vw;
         /* Ajusta el tamaño de la imagen sin afectar la proporción */
         height: auto;
         /* Mantiene la proporción de la imagen */
         display: inline-block;
         /* Hace que la imagen se comporta como un bloque, pero centrada */
+        margin-top: 35px;
+
     }
 
+    .videoSamain {
+        max-width: 30vw;
+        height: auto;
+    }
 
     /*Animación*/
     @keyframes reveal {
