@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/galeriaFotos.css">
@@ -18,7 +19,7 @@
         <h1 data-en="INTERKELTOI" data-es="INTERKELTOI">INTERKELTOI</h1>
         <!--Icono para seleccionar el idioma-->
         <div class="lenguage-selector">
-            <span id="en-icon" class="icon" onclick="changeLanguage('en')">GB</span>
+            <span id="en-icon" class="icon" onclick="changeLanguage('en')">ENG</span>
             <span id="es-icon" class="icon" onclick="changeLanguage('es')">ES</span>
         </div>
     </Header>
@@ -83,6 +84,48 @@
                 </ul>
             </div>
         </nav>
+
+        <!--Contenedor de albums-->
+        <div class="container">
+            <div class="row" id="album-container">
+                <!-- Las cards se generarán dinámicamente aquí -->
+            </div>
+        </div>
+
+        <!-- Modal del Carrusel -->
+        <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="carouselModalLabel">Galería de Fotos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <!-- Imágenes insertadas dinámicamente -->
+                            </div>
+                            <!-- Botón de anterior -->
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden"></span>
+                            </button>
+                            <!-- Botón de siguiente -->
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         <!--Footer-->
         <footer>
             <div class="main-sections">
@@ -137,8 +180,8 @@
                     </li>
                     <li><a href="politicaPrivacidad.html" data-en="Privacy Policy"
                             data-es="Política de Privacidad">Política de Privacidad</a></li>
-                    <li><a href="politicaCookies.html" data-en="Cookies Policy"
-                            data-es="Politica de Cookies">Politica de Cookies</a></li>
+                    <li><a href="politicaCookies.html" data-en="Cookies Policy" data-es="Politica de Cookies">Politica
+                            de Cookies</a></li>
                 </ul>
             </div>
 
@@ -151,6 +194,7 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
             crossorigin="anonymous"></script>

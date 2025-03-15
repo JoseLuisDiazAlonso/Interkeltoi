@@ -18,7 +18,7 @@
         <h1 data-en="INTERKELTOI" data-es="INTERKELTOI">INTERKELTOI</h1>
         <!--Icono para seleccionar el idioma-->
         <div class="lenguage-selector">
-            <span id="en-icon" class="icon" onclick="changeLanguage('en')">GB</span>
+            <span id="en-icon" class="icon" onclick="changeLanguage('en')">ENG</span>
             <span id="es-icon" class="icon" onclick="changeLanguage('es')">ES</span>
         </div>
     </Header>
@@ -83,6 +83,22 @@
                 </ul>
             </div>
         </nav>
+
+        <!--Creamos las imágenes de los carteles-->
+
+        <div class="programas">
+            <figure>
+                <img src="./media/CARTEL DEFINITIVO.JPG" alt="Imagen del cartel de 2024" height="400"
+                onclick="openLightbox(this)">
+                <figcaption>Samain 2024</figcaption>
+            </figure>
+        </div>
+
+        <!--Lightbox para mostrar la imagen en grande-->
+
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <img src="" alt="Imagen Ampliada" id="lightbox-image">
+        </div>
 
         <!--Footer-->
         <footer>

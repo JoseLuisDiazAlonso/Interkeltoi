@@ -139,6 +139,17 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.videoCarlos {
+    display: flex;
+    width: 90vw;
+    max-width: 30vw;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 130px;
+    margin-right: 130px;
+}
+
 /*Damos formato al footer*/
 
 .quienes_somos,
@@ -372,6 +383,13 @@ li {
         margin: 10px;
         max-width: 30%;
         height: auto;
+    }
+
+    .videoCarlos {
+        width: 90vw;
+       height: 300px;
+        margin-left: 450px;
+        margin-right: 500px;
     }
 
     /*footer*/

@@ -16,3 +16,20 @@ function changeLanguage(language) {
     //Cambiamos el atributo lang del documento
     document.documentElement.lang = language;
 }
+
+//Función para reproducir el video
+
+const video = document.getElementById('click', function () {
+    if (video.paused) {
+        video.play();
+        playButton.style.display = "none" //Oculta el botón al reproducir
+    }
+});
+
+video.addEventListener('pause', function () {
+    playButton.style.display = 'block';
+});
+
+video.addEventListener('ended', function () {
+    playButton.style.display = 'block';
+})
