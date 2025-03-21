@@ -44,3 +44,10 @@ function closeLightbox() {
     const lightbox = document.getElementById("lightbox");
     lightbox.style.display = "none";
 }
+
+// Añadir la clase 'active' después de 1 segundo para mostrar el texto
+window.onload = () => {
+    setTimeout(() => {
+        document.querySelector('.programa').classList.add('active');
+    }, 1000);  // La clase 'active' se añade después de 1 segundo
+};
