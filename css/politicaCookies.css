@@ -145,6 +145,25 @@ body {
     color: black;
 }
 
+/*Formato al párrafo*/
+
+.avisoLegal h1 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.avisoLegal p {
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+}
+
+.listado_cookies li {
+    color: black;
+}
+
+
 /*Damos formato al footer*/
 
 .quienes_somos,
