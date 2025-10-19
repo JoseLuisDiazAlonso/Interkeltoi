@@ -1,0 +1,803 @@
+/* Fuente personalizada */
+@font-face {
+    font-family: 'longa_iberica';
+    src: url(../fonts/longa_iberica/LongaIberica-DEMO.ttf);
+}
+
+/* Reset y estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del artículo */
+.cuerpo {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+}
+
+.header-articulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 3px solid rgb(4, 142, 126);
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.titulo-articulo4 {
+    font-family: 'longa_iberica', Arial, sans-serif;
+    font-size: 3rem;
+    color: rgb(4, 142, 126);
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: bolder;
+}
+
+/* ===================================
+   SELECTOR DE IDIOMA
+   =================================== */
+
+.language-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(135deg, #048e7a 0%, #05dbc5 100%);
+    padding: 4px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(4, 142, 122, 0.3);
+    transition: all 0.3s ease;
+}
+
+.language-selector:hover {
+    box-shadow: 0 6px 25px rgba(4, 142, 122, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Indicador deslizante */
+.language-selector::before {
+    content: '';
+    position: absolute;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: white;
+    border-radius: 50px;
+    left: 4px;
+    top: 4px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.language-selector.english::before {
+    transform: translateX(calc(100% + 4px));
+}
+
+/* Botones de idioma */
+.lang-btn {
+    position: relative;
+    padding: 10px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 50px;
+    min-width: 90px;
+    justify-content: center;
+}
+
+.lang-btn:hover {
+    transform: scale(1.05);
+}
+
+.lang-btn:focus {
+    outline: none;
+}
+
+.lang-btn.active {
+    color: #048e7a;
+}
+
+/* Iconos de bandera */
+.flag-icon {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    transition: transform 0.3s ease;
+}
+
+.lang-btn:hover .flag-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.lang-btn.active .flag-icon {
+    animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Efecto de brillo al hover */
+.language-selector::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 50px;
+}
+
+.language-selector:hover::after {
+    opacity: 1;
+}
+
+/* Imagen del artículo */
+.imagen-articulo4 {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.imagen-articulo4:hover {
+    transform: scale(1.02);
+}
+
+/* Textos del artículo */
+.texto-articulo4 {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+/* Secciones de contenido */
+.biografia,
+.curiosidad,
+.informacion-evento,
+.llamada-accion {
+    padding: 30px 0;
+    margin: 30px 0;
+}
+
+.biografia h3,
+.curiosidad h3,
+.informacion-evento h3 {
+    color: rgb(4, 142, 126);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Sección de curiosidad */
+.curiosidad {
+    background: linear-gradient(135deg, rgba(255, 245, 230, 0.5) 0%, rgba(255, 230, 204, 0.5) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #f39c12;
+}
+
+/* Información del evento */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.info-item {
+    background: linear-gradient(135deg, rgba(4, 142, 126, 0.05) 0%, rgba(5, 219, 197, 0.05) 100%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(4, 142, 126, 0.2);
+}
+
+.info-item .icono {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.info-item strong {
+    display: block;
+    color: rgb(4, 142, 126);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.info-item span {
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Llamada a la acción */
+.llamada-accion {
+    background: linear-gradient(135deg, rgba(4, 142, 126, 0.1) 0%, rgba(5, 219, 197, 0.1) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid rgb(4, 142, 126);
+}
+
+.llamada-accion .texto-articulo4 {
+    font-size: 1.15rem;
+    color: rgb(4, 142, 126);
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+}
+
+/* Sección de artista */
+.artista-nombre {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.artista-nombre h2 {
+    color: rgb(4, 142, 126);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.artista-nombre .subtitulo {
+    font-size: 1.3rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Sección de cita */
+.quote-section {
+    background: linear-gradient(135deg, rgb(4, 142, 126) 0%, rgb(5, 219, 197) 100%);
+    padding: 50px 30px;
+    border-radius: 15px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-section::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 100px;
+    color: rgba(255, 255, 255, 0.1);
+    font-family: Georgia, serif;
+}
+
+.quote-section blockquote {
+    position: relative;
+    z-index: 1;
+}
+
+.quote-section blockquote p {
+    color: white;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Anuncio principal */
+.anuncio-principal {
+    background: linear-gradient(135deg, rgb(4, 142, 126) 0%, rgb(5, 219, 197) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 30px 0;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(4, 142, 126, 0.3);
+}
+
+.anuncio-principal .destacado {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.anuncio-principal .novedad {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Información de días */
+.informacion-dias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.dia-evento {
+    background: linear-gradient(135deg, rgba(4, 142, 126, 0.1) 0%, rgba(5, 219, 197, 0.1) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid rgb(4, 142, 126);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dia-evento:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(4, 142, 126, 0.2);
+}
+
+.dia-evento h2 {
+    color: rgb(4, 142, 126);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Destacados del programa */
+.destacados-programa {
+    background: linear-gradient(135deg, rgba(4, 142, 126, 0.05) 0%, rgba(5, 219, 197, 0.05) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 40px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.destacados-programa h2 {
+    color: rgb(4, 142, 126);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.destacados-programa ul {
+    list-style: none;
+    padding: 0;
+}
+
+.destacados-programa li {
+    padding: 15px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid rgb(4, 142, 126);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.destacados-programa li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 10px rgba(4, 142, 126, 0.2);
+}
+
+.destacados-programa li::before {
+    content: '✓';
+    color: rgb(4, 142, 126);
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+
+/* Información práctica */
+.informacion-practica {
+    background: linear-gradient(135deg, rgba(4, 142, 126, 0.1) 0%, rgba(5, 219, 197, 0.1) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 40px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.informacion-practica h2 {
+    color: rgb(4, 142, 126);
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Transición para elementos traducibles */
+.traducible {
+    transition: opacity 0.3s ease;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .titulo-articulo4 {
+        font-size: 2.5rem;
+    }
+
+    .lang-btn {
+        padding: 10px 24px;
+        font-size: 15px;
+        min-width: 90px;
+    }
+    
+    .flag-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 17px;
+    }
+
+    .anuncio-principal .destacado {
+        font-size: 1.8rem;
+    }
+
+    .anuncio-principal .novedad {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .header-articulo {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .titulo-articulo4 {
+        font-size: 2rem;
+    }
+
+    .language-selector {
+        padding: 3px;
+    }
+
+    .lang-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        min-width: 75px;
+        gap: 6px;
+    }
+
+    .flag-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+    }
+
+    .imagen-articulo4 {
+        margin: 20px auto;
+    }
+
+    .texto-articulo4 {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .artista-nombre h2 {
+        font-size: 2rem;
+    }
+
+    .artista-nombre .subtitulo {
+        font-size: 1.1rem;
+    }
+
+    .anuncio-principal {
+        padding: 20px;
+    }
+
+    .anuncio-principal .destacado {
+        font-size: 1.5rem;
+    }
+
+    .anuncio-principal .novedad {
+        font-size: 1.1rem;
+    }
+
+    .informacion-dias {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .dia-evento {
+        padding: 20px;
+    }
+
+    .dia-evento h2 {
+        font-size: 1.5rem;
+    }
+
+    .destacados-programa,
+    .informacion-practica,
+    .llamada-accion,
+    .biografia,
+    .curiosidad {
+        padding: 20px;
+        margin: 30px 0;
+    }
+
+    .destacados-programa h2,
+    .informacion-practica h2,
+    .biografia h3,
+    .curiosidad h3,
+    .informacion-evento h3 {
+        font-size: 1.6rem;
+    }
+
+    .destacados-programa li {
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .info-item {
+        padding: 15px;
+    }
+
+    .info-item strong {
+        font-size: 1rem;
+    }
+
+    .llamada-accion .texto-articulo4 {
+        font-size: 1.1rem;
+    }
+
+    .quote-section {
+        padding: 40px 20px;
+    }
+
+    .quote-section blockquote p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 10px;
+    }
+
+    .header-articulo {
+        padding: 10px 0;
+    }
+
+    .titulo-articulo4 {
+        font-size: 1.6rem;
+    }
+
+    .language-selector {
+        padding: 2px;
+        border-radius: 40px;
+    }
+
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+        min-width: 65px;
+        gap: 4px;
+    }
+
+    .language-selector::before {
+        width: calc(50% - 2px);
+        height: calc(100% - 4px);
+        left: 2px;
+        top: 2px;
+    }
+
+    .language-selector.english::before {
+        transform: translateX(calc(100% + 2px));
+    }
+
+    .flag-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 14px;
+    }
+
+    .artista-nombre h2 {
+        font-size: 1.6rem;
+    }
+
+    .artista-nombre .subtitulo {
+        font-size: 1rem;
+    }
+
+    .anuncio-principal {
+        padding: 15px;
+    }
+
+    .anuncio-principal .destacado {
+        font-size: 1.3rem;
+    }
+
+    .anuncio-principal .novedad {
+        font-size: 1rem;
+    }
+
+    .dia-evento {
+        padding: 15px;
+    }
+
+    .dia-evento h2 {
+        font-size: 1.3rem;
+    }
+
+    .texto-articulo4 {
+        font-size: 0.95rem;
+    }
+
+    .destacados-programa,
+    .informacion-practica,
+    .biografia,
+    .curiosidad {
+        padding: 15px;
+    }
+
+    .destacados-programa h2,
+    .informacion-practica h2,
+    .biografia h3,
+    .curiosidad h3,
+    .informacion-evento h3 {
+        font-size: 1.4rem;
+    }
+
+    .destacados-programa li {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .info-item {
+        padding: 12px;
+    }
+
+    .info-item strong {
+        font-size: 0.95rem;
+    }
+
+    .info-item span {
+        font-size: 0.9rem;
+    }
+
+    .llamada-accion {
+        padding: 15px;
+    }
+
+    .llamada-accion .texto-articulo4 {
+        font-size: 1rem;
+    }
+
+    .quote-section {
+        padding: 30px 15px;
+    }
+
+    .quote-section blockquote p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .titulo-articulo4 {
+        font-size: 1.4rem;
+    }
+
+    .lang-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        min-width: 55px;
+    }
+
+    .lang-btn span:last-child {
+        font-size: 11px;
+    }
+
+    .flag-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 12px;
+    }
+
+    .anuncio-principal .destacado {
+        font-size: 1.2rem;
+    }
+
+    .anuncio-principal .novedad {
+        font-size: 0.95rem;
+    }
+
+    .texto-articulo4 {
+        font-size: 0.9rem;
+    }
+
+    .dia-evento h2 {
+        font-size: 1.2rem;
+    }
+
+    .destacados-programa h2,
+    .informacion-practica h2 {
+        font-size: 1.3rem;
+    }
+
+    .llamada-accion .texto-articulo4 {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .header-articulo {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .titulo-articulo4 {
+        font-size: 1.8rem;
+    }
+
+    .language-selector {
+        padding: 2px;
+    }
+
+    .lang-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+}
