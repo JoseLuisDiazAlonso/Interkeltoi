@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="icon" href="./media/logo interkeltoi.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/interkeltoi.css">
+    <title>Interkeltoi 2024</title>
+</head>
+
+<body>
+    <!--Damos formato al Header-->
+    <Header class="header">
+        <img src="./media/logo interkeltoi.png" alt="Logo Interkeltoi" height="50">
+        <h1 data-en="INTERKELTOI" data-es="INTERKELTOI">INTERKELTOI</h1>
+        <!--Icono para seleccionar el idioma-->
+        <div class="lenguage-selector">
+            <span id="en-icon" class="icon" onclick="changeLanguage('en')">ENG</span>
+            <span id="es-icon" class="icon" onclick="changeLanguage('es')">ES</span>
+        </div>
+    </Header>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="https://numantinos.com/" data-en="ACC Tierraquemada"
+                data-es="ACC Tierraquemada" target="_blank">ACC Tierraquemada</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--Menu Desplegable-->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html" data-en="Home" data-es="Inicio">Inicio <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false" data-en="Interkeltoi" data-es="Interkeltoi">
+                            Interkeltoi
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="./naciones.html" data-en="Nations"
+                                data-es="Naciones">Naciones</a>
+                            <a class="dropdown-item" href="./historiaEvento.html" data-en="History of the Event"
+                                data-es="Historia del Evento">Historia del Evento</a>
+                            <a class="dropdown-item" href="./sociosColaboradores.html" data-en="Collaborating Partners"
+                                data-es="Socios Colaboradores">Socios Colaboradores</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false" data-en="Current Affairs" data-es="Actualidad">
+                            Actualidad
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="./interkeltoi.html" data-en="Interkeltoi 2024"
+                                data-es="Interkeltoi 2024">Interkeltoi 2024</a>
+                            <a class="dropdown-item" href="./interkeltoi2025.html" data-en="Interkeltoi 2025"
+                                data-es="Interkeltoi 2025">Interkeltoi 2025</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                            aria-expanded="false" data-en="Media" data-es="Media">
+                            Media
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="./galeriaFotos.html" data-en="Photo Gallery"
+                                data-es="Galería de Fotos">Galería de Fotos</a>
+                            <a class="dropdown-item" href="./carteles.html" data-en="Posters"
+                                data-es="Carteles">Carteles</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./Contacto.html" data-en="Contact" data-es="Contacto">Contacto <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="content-wrapper">
+            <!-- Título del evento -->
+            <div class="event-header">
+                <h2 class="event-title" data-en="Samain 2024" data-es="Samain 2024">Samain 2024</h2>
+                <p class="event-subtitle" data-en="Celtic Night in Numancia" data-es="Noche Celta en Numancia">
+                    Noche Celta en Numancia
+                </p>
+            </div>
+
+            <!-- Cartel del evento -->
+            <div class="programas-carteles">
+                <img src="./media/CARTEL DEFINITIVO.JPG" alt="Cartel de Samain 2024" onclick="openLightbox(this)">
+            </div>
+
+            <!-- Lightbox para mostrar la imagen en grande -->
+            <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                <span class="close-lightbox">&times;</span>
+                <img src="" alt="Imagen Ampliada" id="lightbox-image">
+            </div>
+
+            <!-- Programa del evento -->
+            <div class="programa">
+                <h3 data-en="Numancia History and Tradition" data-es="Numancia Historia y Tradición">
+                    Numancia Historia y Tradición
+                </h3>
+
+                <div class="programa-item">
+                    <div class="programa-hora">19:30</div>
+                    <div class="programa-detalles">
+                        <h4 data-en="What is Samain?" data-es="¿Qué es Samain?">¿Qué es Samain?</h4>
+                        <p data-en="Scientific explanation, Interkeltoi anthem, and remembrance of the Deceased"
+                           data-es="Explicación científica, himno interkeltoi, y recuerdo a los Difuntos">
+                            Explicación científica<br>
+                            Himno interkeltoi, y recuerdo a los Difuntos
+                        </p>
+                        <p class="programa-lugar" data-en="Location: Numancia Grandstand" data-es="Lugar: Graderío Numancia">
+                            <strong>Lugar:</strong> Graderío Numancia
+                        </p>
+                    </div>
+                </div>
+
+                <div class="programa-item">
+                    <div class="programa-hora">20:00</div>
+                    <div class="programa-detalles">
+                        <h4 data-en="Torch Parade" data-es="Desfile con Antorchas">Desfile con Antorchas</h4>
+                        <p data-en="Join Olindico the Numantine augur to the Nemeton"
+                           data-es="Acompaña a Olindico el augur numantino al Nemetón">
+                            Acompaña a Olindico el augur numantino al Nemetón
+                        </p>
+                    </div>
+                </div>
+
+                <div class="programa-item">
+                    <div class="programa-hora">21:00</div>
+                    <div class="programa-detalles">
+                        <h4 data-en="The Forest Speaks to Us" data-es="El Bosque nos habla">El Bosque nos habla</h4>
+                        <p data-en="Samain Festival: Reunion with ancestors, Fire purification, Dance around the sacred bonfire with music from bards and druids"
+                           data-es="Fiesta Samain: Reencuentro con los antepasados, Purificación del fuego, Baile alrededor de la hoguera sagrada con la música de bardos y druidas">
+                            Fiesta Samain<br>
+                            Reencuentro con los antepasados<br>
+                            Purificación del fuego<br>
+                            Baile alrededor de la hoguera sagrada<br>
+                            Con la música de bardos y druidas
+                        </p>
+                        <p class="programa-lugar" data-en="Location: Triskel, the Numantine Nemeton" data-es="Lugar: Triskel, el Nemetón Numantino">
+                            <strong>Lugar:</strong> Triskel, el Nemetón Numantino
+                        </p>
+                    </div>
+                </div>
+
+                <div class="programa-item">
+                    <div class="programa-hora">22:00</div>
+                    <div class="programa-detalles">
+                        <h4 data-en="Celtic Nations, Modern Cultural Aspects" data-es="Naciones Celtas, Aspectos culturales modernos">
+                            Naciones Celtas, Aspectos culturales modernos
+                        </h4>
+                        
+                        <div class="naciones-list">
+                            <div class="nacion-item">
+                                <span class="nacion-nombre">Gales:</span>
+                                <p data-en="Experience an authentic Welsh tradition" data-es="Vive un auténtica tradición Galesa">
+                                    Vive un auténtica tradición Galesa
+                                </p>
+                            </div>
+
+                            <div class="nacion-item">
+                                <span class="nacion-nombre">Escocia:</span>
+                                <p data-en="Listen to the music and forbidden chords of the Scottish Bagpipes by City of Barcelona Pipe Band"
+                                   data-es="Escucha la música y los acordes prohibidos de las Gaitas Escocesas de City of Barcelona Pipe Band">
+                                    Escucha la música y los acordes prohibidos de las Gaitas Escocesas de City of Barcelona Pipe Band
+                                </p>
+                            </div>
+
+                            <div class="nacion-item">
+                                <span class="nacion-nombre">Irlanda:</span>
+                                <p data-en="Dance with us Irish dance with Delorgans in their show: CELTIC. Visit the burger Food Truck with authentic Irish Beef"
+                                   data-es="Baila con Nosotros la danza Irlandesa de la mano de Delorgans en su espectáculo: CELTIC. Visita la Food Truck de hamburguesas con auténtica Carne Irlandesa">
+                                    Baila con Nosotros la danza Irlandesa de la mano de Delorgans en su espectáculo: CELTIC<br>
+                                    Visita la Food Truck de hamburguesas con auténtica Carne Irlandesa
+                                </p>
+                            </div>
+
+                            <div class="nacion-item">
+                                <span class="nacion-nombre">Cornualles:</span>
+                                <p data-en="Taste their typical Cider" data-es="Degusta su típica Sidra">
+                                    Degusta su típica Sidra
+                                </p>
+                            </div>
+
+                            <div class="nacion-item">
+                                <span class="nacion-nombre">Bretaña:</span>
+                                <p data-en="Food Truck where you can taste their famous Crepes" data-es="Food Truck donde podrás saborear sus famosas Crepes">
+                                    Food Truck donde podrás saborear sus famosas Crepes
+                                </p>
+                            </div>
+
+                            <div class="nacion-item">
+                                <span class="nacion-nombre">Numancia:</span>
+                                <p data-en="Grilled meat from Samain bonfires" data-es="Carne a la brasa de las hogueras de Samain">
+                                    Carne a la brasa de las hogueras de Samain
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <div class="main-sections">
+            <div class="quienes_somos">
+                <h2 data-en="Who We Are" data-es="QUIENES SOMOS">QUIENES SOMOS</h2>
+                <p data-en="Since 1999, coinciding with the inauguration of the Archaeological Hall about 'The Roman Enclosure of Numancia', the scenic representation of episodes from the Numantine Wars began. This success justifies the continuity of these representations on a permanent basis, creating the Association."
+                    data-es="Desde 1999, coincidiendo con la inauguración del Aula arqueológica sobre 'El Cerco romano de Numancia', se inició la representación escénica de episodios de las Guerras Numantinas. Este éxito justifica la continuidad de estas representaciones con carácter permanente, creándose la Asociación.">
+                    Desde 1999, coincidiendo con la inauguración del Aula arqueológica sobre 'El Cerco romano de
+                    Numancia', se inició la representación escénica de episodios de las Guerras Numantinas. Este
+                    éxito justifica la continuidad de estas representaciones con carácter permanente, creándose la
+                    Asociación.
+                </p>
+            </div>
+            <div class="contacto">
+                <h2 data-en="Contact" data-es="CONTACTO">CONTACTO</h2>
+                <div class="phone">
+                    <img src="./media/phone.png" alt="imagen de teléfono" height="20">
+                    <p>+34 975 252 248</p>
+                </div>
+                <div class="fax">
+                    <img src="./media/fax.png" alt="imagen de fax" height="20">
+                    <p>+34 975 252 248</p>
+                </div>
+                <div class="email">
+                    <img src="./media/mail.png" alt="imagen de mail" height="20">
+                    <p>administracion@numantinos.com</p>
+                </div>
+                <div class="location">
+                    <img src="./media/ubication.png" alt="imagen de ubicacion" height="20">
+                    <p>C/Garrejo, 17 Bajo 42162 Garray (Soria)</p>
+                </div>
+            </div>
+            <div class="ultimas_noticias">
+                <h2 data-en="Latest News" data-es="ULTIMAS NOTICIAS">ULTIMAS NOTICIAS</h2>
+                <ul class="tweet_list">
+                    <li class="tweet_first tweet_odd">
+                        <span class="tweet_text">
+                                   <a href="https://numantinos.com/noticias/ver/356/vuelve-interkeltoi-samain"
+                                    data-en="INTERKELTOI-SAMAIN 2025" data-es="VUELVE INTERKELTOI-SAMAIN 2025">
+                                    INTERKELTOI-SAMAIN</a></span><br>
+                            <span class="tweet_time">16/10/2025</span>
+                    </li>
+                    <li class="tweet_first tweet_odd">
+                        <span class="tweet_text"><a
+                                href="https://numantinos.com/noticias/ver/356/vuelve-interkeltoi-samain"
+                                data-en="VUELVE INTERKELTOI-SAMAIN" data-es="VUELVE INTERKELTOI-SAMAIN">VUELVE
+                                INTERKELTOI-SAMAIN</a></span><br>
+                        <span class="tweet_time">07/10/2024</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="legal_conditions">
+            <ul class="conditions">
+                <li>ACCTierraquemada.Todos los derechos Reservados</li>
+                <li><a href="avisoLegal.html" data-en="Legal Notice" data-es="Aviso Legal">Aviso Legal</a></li>
+                <li><a href="politicaPrivacidad.html" data-en="Privacy Policy"
+                        data-es="Política de Privacidad">Política de Privacidad</a></li>
+                <li><a href="politicaCookies.html" data-en="Cookies Policy" data-es="Politica de Cookies">Politica
+                        de Cookies</a></li>
+            </ul>
+        </div>
+
+        <div class="logo">
+            <img src="./media/logo ayto Garray.png" alt="Logo del ayuntamiento del Garray" height="80">
+            <img src="./media/logoTq.png" alt="Logo de la Asociación Celtibérica Tierraquemada" height="80">
+        </div>
+        <!--Redes Sociales-->
+        <div class="footer-social-section">
+            <h3>Sígenos en Redes Sociales</h3>
+            <div class="footer-social-icons">
+                <a href="https://www.instagram.com/interkeltoi?igsh=MXJvMWdnYzkyYWJ1Zw=="><img src="./media/Instagram.png" alt="Logo de Instagram" height="30"></a>
+                <a href="https://www.facebook.com/share/1HVikMoMUQ/"><img src="./media/IconFacebook.png" alt="Logo de Facebook" height="30"></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script src="./js/interkeltoi.js"></script>
+</body>
+
+</html>
