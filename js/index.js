@@ -119,7 +119,82 @@ videoModal.addEventListener('click', (e) => {
 // Array de artículos/noticias
 const articles = [
     {
+        id:0,
+        title: {
+            es: "El Bosque de los Héroes",
+            en: "The Forest of Heroes"
+        },
+        description: {
+            es: "El 1 de Noviembre, a las 12:00, llega uno de los momentos más emotivos de Interkeltoi. Nuestos niñ@s numantinos plantan un ARCE en el bosque de los Héroes de Garray",
+            en: "On November 1st at 12:00, one of the most moving moments of Interkeltoi arrives. Our Numantine children plant a MAPLE tree in the Forest of Heroes in Garray."
+        },
+        date: {
+            es: "1 de Noviembre 2025, 12:00 horas",
+            en: "November 1st 2025, 12:00 h"
+        },
+        image: "./media/arbolSamain.jpg",
+        link: "./articulo11.html"
+
+    },
+    {
         id:1,
+        title: {
+            es: "IRISH TREBLE en Concierto",
+            en: "IRISH TREBLE in Concert"
+
+        },
+        description: {
+            es: "No te pierdas a las representantes irlandesas de Interkeltoi 2025 y sus bailes participativos al ritmo frenético de la música",
+            en: "Don’t miss the Irish representatives of Interkeltoi 2025 and their participatory dances to the frenetic rhythm of the music"
+
+        },
+        date: {
+            es: "31 de Octubre 2025, 22 horas",
+            en: "October 31st, 2025"
+
+        },
+        image: "./media/thumbnails/videoMusical.png",
+        link: "./articulo10.html"
+    },
+    {
+        id:2,
+        title: {
+            es: "TIC TAC",
+            en: "TIC TAC"
+        },
+        description: {
+            es: "Se acerca Interkeltoi",
+            en: "Interkeltoi is approaching"
+        },
+        date: {
+            es: "31 de Octubre, 2025",
+            en: "October 31st, 2025"
+        },
+        image: "./media/thumbnails/videoInMyDreams.png",
+        link: "./articulo9.html"
+
+    },
+    {
+        id:3,
+        title: {
+            es: "La Danza de Samain",
+            en: "The Dance of Samain"
+        },
+        description: {
+            es: "Un viaje inmersivo a la Edad de los Metales",
+            en: "An immersive journey to the Metal Age"
+
+        },
+        date: {
+            es: "31 de Octubre, 2025",
+            en: "October 31st, 2025"
+
+        },
+        image: "./media/thumbnails/videoDanza.png",
+        link: "./articulo8.html"
+    },
+    {
+        id:4,
         title: {
             es: "Saukon",
             en: "Saucon"
@@ -136,7 +211,7 @@ const articles = [
         link: "./articulo7.html"
     },
     {
-        id:2,
+        id:5,
         title: {
             es: "Desfile de Antorchas",
             en: "Torch Parade",
@@ -153,7 +228,7 @@ const articles = [
         link: "./articulo6.html"
     },
     {
-        id:3,
+        id:6,
         title: {
             es: "MARISA GERARDI",
             en: "MARISA GERARDI"
@@ -170,7 +245,7 @@ const articles = [
         link: "./articulo5.html"
     },
     {
-        id: 4,
+        id: 7,
         title: {
             es: "INTERKELTOI 2025",
             en: "INTERKELTOI 2025"
@@ -188,7 +263,7 @@ const articles = [
     },
    
     {
-     id: 5,
+     id: 8,
         title: {
             es: "SAMAIN 2025",
             en: "SAMAIN 2025"
@@ -205,7 +280,7 @@ const articles = [
         link: "./articulo.html"  
     },
     {
-        id: 6,
+        id: 9,
         title: {
             es: "PROGRAMA COMPLETO INTERKELTOI 2025",
             en: "COMPLETE PROGRAM INTERKELTOI 2025"
@@ -222,7 +297,7 @@ const articles = [
         link: "./articulo3.html"
     },
     {
-        id: 7,
+        id: 10,
         title: {
             es: "JOHN STEWART - El Gaitero Escocés",
             en: "JOHN STEWART - The Scottish Piper"
@@ -323,3 +398,69 @@ document.getElementById('updatesNext')?.addEventListener('click', () => {
 
 // Generar las cards al cargar la página
 document.addEventListener('DOMContentLoaded', generarCards);
+
+// ============================================
+// NAVBAR RESPONSIVE
+// ============================================
+(function() {
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarNav = document.querySelector('.navbar-nav');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    // Crear overlay
+    let overlay = document.createElement('div');
+    overlay.className = 'navbar-overlay';
+    document.body.appendChild(overlay);
+
+    // Abrir/cerrar menú
+    if (navbarToggle) {
+        navbarToggle.addEventListener('click', function() {
+            navbarNav.classList.toggle('active');
+            navbarToggle.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = navbarNav.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+
+    // Cerrar con overlay
+    overlay.addEventListener('click', function() {
+        navbarNav.classList.remove('active');
+        navbarToggle.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Cerrar al hacer click en link
+    navbarNav.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    navbarNav.classList.remove('active');
+                    navbarToggle.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        });
+    });
+
+    // Dropdowns en móvil
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.closest('.dropdown').classList.toggle('active');
+            }
+        });
+    });
+
+    // Cerrar al cambiar tamaño
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navbarNav.classList.remove('active');
+            navbarToggle.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+})();
