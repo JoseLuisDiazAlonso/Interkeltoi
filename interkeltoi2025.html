@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="icon" href="./media/logo interkeltoi.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/interkeltoi2025.css">
-    <title>Actualidad</title>
+    <title>Interkeltoi 2025</title>
 </head>
 
 <body>
@@ -61,7 +61,6 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="./interkeltoi.html" data-en="Interkeltoi 2024"
                                 data-es="Interkeltoi 2024">Interkeltoi 2024</a>
-                                
                             <a class="dropdown-item" href="./interkeltoi2025.html" data-en="Interkeltoi 2025"
                                 data-es="Interkeltoi 2025">Interkeltoi 2025</a>
                         </div>
@@ -73,8 +72,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="./galeriaFotos.html" data-en="Photo Gallery"
-                                data-es="Galería de Fotos">Galería
-                                de Fotos</a>
+                                data-es="Galería de Fotos">Galería de Fotos</a>
                             <a class="dropdown-item" href="./carteles.html" data-en="Posters"
                                 data-es="Carteles">Carteles</a>
                         </div>
@@ -87,162 +85,329 @@
             </div>
         </nav>
 
-        <div class="programas">
-            <figure>
-                <img src="./media/cartel2025.jpg" alt="Imagen del cartel de 2025" height="400"
-                    onclick="openLightbox(this)">
-                <figcaption>Interkeltoi 2025</figcaption>
-            </figure>      
-        </div>
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="content-wrapper">
+            <!-- Título del evento -->
+            <div class="event-header">
+                <h2 class="event-title" data-en="Interkeltoi 2025" data-es="Interkeltoi 2025">Interkeltoi 2025</h2>
+                <p class="event-subtitle" data-en="Celtic Night in Numancia" data-es="Noche Celta en Numancia">
+                    Noche Celta en Numancia
+                </p>
+            </div>
 
-        <!--Lightbox para mostrar la imagen en grande-->
+            <!-- Cartel del evento -->
+            <div class="programas-carteles">
+                <img src="./media/cartel2025.jpg" alt="Cartel de Samain 2025" onclick="openLightbox(this)">
+            </div>
 
-        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-            <img src="" alt="Imagen Ampliada" id="lightbox-image">
-        </div>
+            <!-- Lightbox para mostrar la imagen en grande -->
+            <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                <span class="close-lightbox">&times;</span>
+                <img src="" alt="Imagen Ampliada" id="lightbox-image">
+            </div>
 
-        <div class="programa">
-        <h3>Samain 2025</h3>
-        <h4>DIA 1. VIERNES 31 DE OCTUBRE</h4>
-        <h5>Acto 1: INAUGURACIÓN Y HOMENAJE</h5>
-        <p>Lugar: Graderia de Numancia</p>
-        <ul>
-            <li>19:30 h. Acto Inaugural.
-                <ul>
-                    <li>Inauguración</li>
-                    <li>Bienvenida del Espíritu del fuego</li>
-                    <li>Explicación didáctica sobre el origen de Halloween y el Samain Numantino</li>
-                    <li>Actuación musical ambientada en la serie Outlander a cargo del grupo Delorgan</li>
-                    <li>Actuación musical a cargo de Irish Trebole</li>
-                    <li>Interpretación "Amazing Grace" por gaitero escocés Jhon Stewart</li>
-                </ul>
-            </li>
-        </ul>
+            <!-- Programa del evento -->
+            <div class="programa">
+                <h3 data-en="Samain 2025 Program" data-es="Programa Samain 2025">
+                    Programa Interkeltoi 2025
+                </h3>
 
-        <ul>
-            <li>20:00 Desfile con Antorchas
-                <p>Acompaña a Olindico el augur numantino al Nemetón</p>
-            </li>
-        </ul>
-        <h5>Acto 2: DESFILE DESDE NUMANCIA AL NEMETON</h5>
-        <p>Lugar: desde el graderia de Numancia al Bosque de los Héroes de Garray</p>
-        <ul>
-            <li>20:00 h. Desfile con Antorchas
-                <p>Acompaña al augur numantino Olindico desde Numancia al Nemeton del Bosque de los Héroes de Garray</p>
-            </li>
-        </ul>
-        <h5>Acto 3: REENCUENTRO CON LOS ANTEPASADOS Y PURIFICACIÓN DEL FUEGO</h5>
-        <p>Lugar: Busque de los Héroes de Garray</p>
-        <ul>
-            <li>20:45 h. El Bosque nos habla sobre los antepasados y la purificación del fuego
-                <ul>
-                    <li>Saukón y Salina reciben a los visitantes</li>
-                    <li>Recreación histórica del Samain numantino</li>
-                    <li>Baile alrededor de la hoguera</li>
-                    <li>Actuación musical del grupo soriano Bardos y Druidas</li>
-                </ul>
-            </li>
-            <li>22:00 h. Naciones Celtas: aspectos culturales modernos</li>
-            <p>Lugar: Fronton de Garray</p>
-            <ul>
-                <li>Gales: la hoguera de Nos Calan Gaeaf donde purificar los malos recuerdos</li>
-                <li>Escocia: la música de la gaita escocesa de las Highlands</li>
-                <li>Irlanda: actuación musical de danza participativa ceili por Irish Treble. Food truck de
-                    hamburguesa de carne irlandesa.
-                </li>
-                <li>Cornualles: sidra típica.</li>
-                <li>Bretaña: food truck con las famosas crépes.</li>
-                <li>Numancia: carne a la bras de las hogueras de Samain.</li>
-            </ul>
-        </ul>
+                <!-- DÍA 1: VIERNES 31 DE OCTUBRE -->
+                <div style="background: linear-gradient(135deg, rgba(4, 142, 126, 0.1), rgba(5, 219, 197, 0.1)); padding: 20px; border-radius: 15px; margin: 30px 0;">
+                    <h4 style="color: rgb(4, 142, 126); font-size: 2rem; text-align: center; margin-bottom: 20px;" 
+                        data-en="DAY 1: FRIDAY, OCTOBER 31" data-es="DÍA 1: VIERNES 31 DE OCTUBRE">
+                        DÍA 1: VIERNES 31 DE OCTUBRE
+                    </h4>
 
-        <h4>DÍA 2: SÁBADO 1 DE NOVIEMBRE</h4>
-        <h5>Acto 4: EL LEGADO</h5>
-        <p>Lugar: Bosque de los Héroes de Garray.</p>
-        <ul>
-            <li>12:00 h. Plantado del árbol por los niños de la ACC Tierraquemada</li>
-            <li>12:30 h. Microteatro: un sueño de Samain. Para niños y mayores. Por Popy Vegas.</li>
-            <li>13:00 h. Taller de danza ceili irlandesa y escocesa participativa, por grupo Delorgan y maestro
-                Fletcher Anderson.</li>
-            <li>Food trucks</li>
-        </ul>
+                    <!-- ACTO 1: INAUGURACIÓN Y HOMENAJE -->
+                    <div style="margin-bottom: 30px;">
+                        <h5 style="color: rgb(4, 142, 126); font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;"
+                            data-en="ACT 1: INAUGURATION AND TRIBUTE" data-es="ACTO 1: INAUGURACIÓN Y HOMENAJE">
+                            ACTO 1: INAUGURACIÓN Y HOMENAJE
+                        </h5>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">19:30</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Inaugural Act" data-es="Acto Inaugural">Acto Inaugural</h4>
+                                <p data-en="Inauguration, Welcome of the Spirit of Fire, Educational explanation about the origin of Halloween and Numantine Samain"
+                                   data-es="Inauguración, Bienvenida del Espíritu del fuego, Explicación didáctica sobre el origen de Halloween y el Samain Numantino">
+                                    • Inauguración<br>
+                                    • Bienvenida del Espíritu del fuego<br>
+                                    • Explicación didáctica sobre el origen de Halloween y el Samain Numantino<br>
+                                    • Actuación musical ambientada en la serie Outlander a cargo del grupo Delorgan<br>
+                                    • Actuación musical a cargo de Irish Trebole<br>
+                                    • Interpretación "Amazing Grace" por gaitero escocés Jhon Stewart
+                                </p>
+                                <p class="programa-lugar" data-en="Location: Numancia Grandstand" data-es="Lugar: Graderío de Numancia">
+                                    <strong>Lugar:</strong> Graderío de Numancia
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACTO 2: DESFILE -->
+                    <div style="margin-bottom: 30px;">
+                        <h5 style="color: rgb(4, 142, 126); font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;"
+                            data-en="ACT 2: PARADE FROM NUMANCIA TO NEMETON" data-es="ACTO 2: DESFILE DESDE NUMANCIA AL NEMETON">
+                            ACTO 2: DESFILE DESDE NUMANCIA AL NEMETON
+                        </h5>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">20:00</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Torch Parade" data-es="Desfile con Antorchas">Desfile con Antorchas</h4>
+                                <p data-en="Join the Numantine augur Olindico from Numancia to the Nemeton at the Forest of Heroes in Garray"
+                                   data-es="Acompaña al augur numantino Olindico desde Numancia al Nemeton del Bosque de los Héroes de Garray">
+                                    Acompaña al augur numantino Olindico desde Numancia al Nemeton del Bosque de los Héroes de Garray
+                                </p>
+                                <p class="programa-lugar" data-en="Location: From Numancia Grandstand to the Forest of Heroes in Garray" 
+                                   data-es="Lugar: Desde el graderío de Numancia al Bosque de los Héroes de Garray">
+                                    <strong>Lugar:</strong> Desde el graderío de Numancia al Bosque de los Héroes de Garray
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACTO 3: REENCUENTRO -->
+                    <div style="margin-bottom: 30px;">
+                        <h5 style="color: rgb(4, 142, 126); font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;"
+                            data-en="ACT 3: REUNION WITH ANCESTORS AND FIRE PURIFICATION" data-es="ACTO 3: REENCUENTRO CON LOS ANTEPASADOS Y PURIFICACIÓN DEL FUEGO">
+                            ACTO 3: REENCUENTRO CON LOS ANTEPASADOS Y PURIFICACIÓN DEL FUEGO
+                        </h5>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">20:45</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="The Forest speaks about ancestors and fire purification" 
+                                    data-es="El Bosque nos habla sobre los antepasados y la purificación del fuego">
+                                    El Bosque nos habla sobre los antepasados y la purificación del fuego
+                                </h4>
+                                <p data-en="Saukón and Salina welcome visitors, Historical recreation of Numantine Samain, Dance around the bonfire, Musical performance by the group Bardos y Druidas"
+                                   data-es="Saukón y Salina reciben a los visitantes, Recreación histórica del Samain numantino, Baile alrededor de la hoguera, Actuación musical del grupo soriano Bardos y Druidas">
+                                    • Saukón y Salina reciben a los visitantes<br>
+                                    • Recreación histórica del Samain numantino<br>
+                                    • Baile alrededor de la hoguera<br>
+                                    • Actuación musical del grupo soriano Bardos y Druidas
+                                </p>
+                                <p class="programa-lugar" data-en="Location: Forest of Heroes in Garray" data-es="Lugar: Bosque de los Héroes de Garray">
+                                    <strong>Lugar:</strong> Bosque de los Héroes de Garray
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">22:00</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Celtic Nations: Modern Cultural Aspects" data-es="Naciones Celtas: aspectos culturales modernos">
+                                    Naciones Celtas: aspectos culturales modernos
+                                </h4>
+                                <p class="programa-lugar" data-en="Location: Garray Fronton" data-es="Lugar: Frontón de Garray">
+                                    <strong>Lugar:</strong> Frontón de Garray
+                                </p>
+
+                                <div class="naciones-list">
+                                    <div class="nacion-item">
+                                        <span class="nacion-nombre">Gales:</span>
+                                        <p data-en="The bonfire of Nos Calan Gaeaf where to purify bad memories"
+                                           data-es="La hoguera de Nos Calan Gaeaf donde purificar los malos recuerdos">
+                                            La hoguera de Nos Calan Gaeaf donde purificar los malos recuerdos
+                                        </p>
+                                    </div>
+
+                                    <div class="nacion-item">
+                                        <span class="nacion-nombre">Escocia:</span>
+                                        <p data-en="The music of the Scottish bagpipes from the Highlands"
+                                           data-es="La música de la gaita escocesa de las Highlands">
+                                            La música de la gaita escocesa de las Highlands
+                                        </p>
+                                    </div>
+
+                                    <div class="nacion-item">
+                                        <span class="nacion-nombre">Irlanda:</span>
+                                        <p data-en="Musical performance of participatory ceili dance by Irish Treble. Food truck with Irish beef hamburgers."
+                                           data-es="Actuación musical de danza participativa ceili por Irish Treble. Food truck de hamburguesa de carne irlandesa.">
+                                            Actuación musical de danza participativa ceili por Irish Treble<br>
+                                            Food truck de hamburguesa de carne irlandesa
+                                        </p>
+                                    </div>
+
+                                    <div class="nacion-item">
+                                        <span class="nacion-nombre">Cornualles:</span>
+                                        <p data-en="Typical cider" data-es="Sidra típica">
+                                            Sidra típica
+                                        </p>
+                                    </div>
+
+                                    <div class="nacion-item">
+                                        <span class="nacion-nombre">Bretaña:</span>
+                                        <p data-en="Food truck with famous crepes" data-es="Food truck con las famosas crépes">
+                                            Food truck con las famosas crépes
+                                        </p>
+                                    </div>
+
+                                    <div class="nacion-item">
+                                        <span class="nacion-nombre">Numancia:</span>
+                                        <p data-en="Grilled meat from Samain bonfires" data-es="Carne a la brasa de las hogueras de Samain">
+                                            Carne a la brasa de las hogueras de Samain
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DÍA 2: SÁBADO 1 DE NOVIEMBRE -->
+                <div style="background: linear-gradient(135deg, rgba(5, 219, 197, 0.1), rgba(4, 142, 126, 0.1)); padding: 20px; border-radius: 15px; margin: 30px 0;">
+                    <h4 style="color: rgb(4, 142, 126); font-size: 2rem; text-align: center; margin-bottom: 20px;"
+                        data-en="DAY 2: SATURDAY, NOVEMBER 1" data-es="DÍA 2: SÁBADO 1 DE NOVIEMBRE">
+                        DÍA 2: SÁBADO 1 DE NOVIEMBRE
+                    </h4>
+
+                    <!-- ACTO 4: EL LEGADO -->
+                    <div style="margin-bottom: 30px;">
+                        <h5 style="color: rgb(4, 142, 126); font-size: 1.8rem; font-weight: bold; margin-bottom: 15px;"
+                            data-en="ACT 4: THE LEGACY" data-es="ACTO 4: EL LEGADO">
+                            ACTO 4: EL LEGADO
+                        </h5>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">12:00</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Tree Planting" data-es="Plantado del árbol">Plantado del árbol</h4>
+                                <p data-en="Tree planting by the children of ACC Tierraquemada"
+                                   data-es="Plantado del árbol por los niños de la ACC Tierraquemada">
+                                    Plantado del árbol por los niños de la ACC Tierraquemada
+                                </p>
+                                <p class="programa-lugar" data-en="Location: Forest of Heroes in Garray" data-es="Lugar: Bosque de los Héroes de Garray">
+                                    <strong>Lugar:</strong> Bosque de los Héroes de Garray
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">12:30</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Microtheater: A Samain Dream" data-es="Microteatro: un sueño de Samain">Microteatro: un sueño de Samain</h4>
+                                <p data-en="For children and adults. By Popy Vegas."
+                                   data-es="Para niños y mayores. Por Popy Vegas.">
+                                    Para niños y mayores<br>
+                                    Por Popy Vegas
+                                </p>
+                                <p class="programa-lugar" data-en="Location: Forest of Heroes in Garray" data-es="Lugar: Bosque de los Héroes de Garray">
+                                    <strong>Lugar:</strong> Bosque de los Héroes de Garray
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">13:00</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Irish and Scottish Ceili Dance Workshop" data-es="Taller de danza ceili irlandesa y escocesa">
+                                    Taller de danza ceili irlandesa y escocesa
+                                </h4>
+                                <p data-en="Participatory workshop by Delorgan group and master Fletcher Anderson"
+                                   data-es="Taller participativo, por grupo Delorgan y maestro Fletcher Anderson">
+                                    Taller participativo<br>
+                                    Por grupo Delorgan y maestro Fletcher Anderson
+                                </p>
+                                <p class="programa-lugar" data-en="Location: Forest of Heroes in Garray" data-es="Lugar: Bosque de los Héroes de Garray">
+                                    <strong>Lugar:</strong> Bosque de los Héroes de Garray
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="programa-item">
+                            <div class="programa-hora">Todo el día</div>
+                            <div class="programa-detalles">
+                                <h4 data-en="Food Trucks" data-es="Food Trucks">Food Trucks</h4>
+                                <p data-en="Various food trucks available throughout the day"
+                                   data-es="Varios food trucks disponibles durante todo el día">
+                                    Varios food trucks disponibles durante todo el día
+                                </p>
+                                <p class="programa-lugar" data-en="Location: Forest of Heroes in Garray" data-es="Lugar: Bosque de los Héroes de Garray">
+                                    <strong>Lugar:</strong> Bosque de los Héroes de Garray
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
 
     </div>
 
-    </div>
-
-
-        <!--Footer-->
-        <footer>
-            <div class="main-sections">
-                <div class="quienes_somos">
-                    <h2 data-en="Who We Are" data-es="QUIENES SOMOS">QUIENES SOMOS</h2>
-                    <p data-en="Since 1999, coinciding with the inauguration of the Archaeological Hall about 'The Roman Enclosure of Numancia', the scenic representation of episodes from the Numantine Wars began. This success justifies the continuity of these representations on a permanent basis, creating the Association."
-                        data-es="Desde 1999, coincidiendo con la inauguración del Aula arqueológica sobre 'El Cerco romano de Numancia', se inició la representación escénica de episodios de las Guerras Numantinas. Este éxito justifica la continuidad de estas representaciones con carácter permanente, creándose la Asociación.">
-                        Desde 1999, coincidiendo con la inauguración del Aula arqueológica sobre 'El Cerco romano de
-                        Numancia', se inició la representación escénica de episodios de las Guerras Numantinas. Este
-                        éxito justifica la continuidad de estas representaciones con carácter permanente, creándose la
-                        Asociación.
-                    </p>
-
+    <!--Footer-->
+    <footer>
+        <div class="main-sections">
+            <div class="quienes_somos">
+                <h2 data-en="Who We Are" data-es="QUIENES SOMOS">QUIENES SOMOS</h2>
+                <p data-en="Since 1999, coinciding with the inauguration of the Archaeological Hall about 'The Roman Enclosure of Numancia', the scenic representation of episodes from the Numantine Wars began. This success justifies the continuity of these representations on a permanent basis, creating the Association."
+                    data-es="Desde 1999, coincidiendo con la inauguración del Aula arqueológica sobre 'El Cerco romano de Numancia', se inició la representación escénica de episodios de las Guerras Numantinas. Este éxito justifica la continuidad de estas representaciones con carácter permanente, creándose la Asociación.">
+                    Desde 1999, coincidiendo con la inauguración del Aula arqueológica sobre 'El Cerco romano de
+                    Numancia', se inició la representación escénica de episodios de las Guerras Numantinas. Este
+                    éxito justifica la continuidad de estas representaciones con carácter permanente, creándose la
+                    Asociación.
+                </p>
+            </div>
+            <div class="contacto">
+                <h2 data-en="Contact" data-es="CONTACTO">CONTACTO</h2>
+                <div class="phone">
+                    <img src="./media/phone.png" alt="imagen de teléfono" height="20">
+                    <p>+34 975 252 248</p>
                 </div>
-                <div class="contacto">
-                    <h2 data-en="Contact" data-es="CONTACTO">CONTACTO</h2>
-                    <div class="phone">
-                        <img src="./media/phone.png" alt="imagen de teléfono" height="20">
-                        <p>+34 975 252 248</p>
-                    </div>
-                    <div class="fax">
-                        <img src="./media/fax.png" alt="imagen de fax" height="20">
-                        <p>+34 975 252 248</p>
-                    </div>
-                    <div class="email">
-                        <img src="./media/mail.png" alt="imagen de mail" height="20">
-                        <p>administracion@numantinos.com</p>
-                    </div>
-                    <div class="location">
-                        <img src="./media/ubication.png" alt="imagen de ubicacion" height="20">
-                        <p>C/Garrejo, 17 Bajo 42162 Garray (Soria)</p>
-                    </div>
+                <div class="fax">
+                    <img src="./media/fax.png" alt="imagen de fax" height="20">
+                    <p>+34 975 252 248</p>
                 </div>
-                <div class="ultimas_noticias">
-                    <h2 data-en="Latest News" data-es="ULTIMAS NOTICIAS">ULTIMAS NOTICIAS</h2>
-                    <ul class="tweet_list">
-                        <li class="tweet_first tweet_odd">
-                            <span class="tweet_text">
+                <div class="email">
+                    <img src="./media/mail.png" alt="imagen de mail" height="20">
+                    <p>administracion@numantinos.com</p>
+                </div>
+                <div class="location">
+                    <img src="./media/ubication.png" alt="imagen de ubicacion" height="20">
+                    <p>C/Garrejo, 17 Bajo 42162 Garray (Soria)</p>
+                </div>
+            </div>
+            <div class="ultimas_noticias">
+                <h2 data-en="Latest News" data-es="ULTIMAS NOTICIAS">ULTIMAS NOTICIAS</h2>
+                <ul class="tweet_list">
+                    <li class="tweet_first tweet_odd">
+                        <span class="tweet_text">
                                    <a href="https://numantinos.com/noticias/ver/356/vuelve-interkeltoi-samain"
                                     data-en="INTERKELTOI-SAMAIN 2025" data-es="VUELVE INTERKELTOI-SAMAIN 2025">
                                     INTERKELTOI-SAMAIN</a></span><br>
                             <span class="tweet_time">16/10/2025</span>
-                        </li>
-                        <li class="tweet_first tweet_odd">
-                            <span class="tweet_text"><a
-                                    href="https://numantinos.com/noticias/ver/356/vuelve-interkeltoi-samain"
-                                    data-en="VUELVE INTERKELTOI-SAMAIN" data-es="VUELVE INTERKELTOI-SAMAIN">VUELVE
-                                    INTERKELTOI-SAMAIN</a></span><br>
-                            <span class="tweet_time">07/10/2024</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="legal_conditions">
-                <ul class="conditions">
-                    <li>ACCTierraquemada.Todos los derechos Reservados</li>
-                    <li><a href="avisoLegal.html" data-en="Legal Notice" data-es="Aviso Legal">Aviso Legal</a>
                     </li>
-                    <li><a href="politicaPrivacidad.html" data-en="Privacy Policy"
-                            data-es="Política de Privacidad">Política de Privacidad</a></li>
-                    <li><a href="politicaCookies.html" data-en="Cookies Policy" data-es="Politica de Cookies">Politica
-                            de Cookies</a></li>
+                    <li class="tweet_first tweet_odd">
+                        <span class="tweet_text"><a
+                                href="https://numantinos.com/noticias/ver/356/vuelve-interkeltoi-samain"
+                                data-en="VUELVE INTERKELTOI-SAMAIN" data-es="VUELVE INTERKELTOI-SAMAIN">VUELVE
+                                INTERKELTOI-SAMAIN</a></span><br>
+                        <span class="tweet_time">07/10/2024</span>
+                    </li>
                 </ul>
             </div>
+        </div>
 
-            <div class="logo">
-                <img src="./media/logo ayto Garray.png" alt="Logo del ayuntamiento del Garray" height="80">
-                <img src="./media/logoTq.png" alt="Logo de la Asociación Celtibérica Tierraquemada" height="80">
-            </div>
-         <!--Redes Sociales-->
+        <div class="legal_conditions">
+            <ul class="conditions">
+                <li>ACCTierraquemada.Todos los derechos Reservados</li>
+                <li><a href="avisoLegal.html" data-en="Legal Notice" data-es="Aviso Legal">Aviso Legal</a></li>
+                <li><a href="politicaPrivacidad.html" data-en="Privacy Policy"
+                        data-es="Política de Privacidad">Política de Privacidad</a></li>
+                <li><a href="politicaCookies.html" data-en="Cookies Policy" data-es="Politica de Cookies">Politica
+                        de Cookies</a></li>
+            </ul>
+        </div>
+
+        <div class="logo">
+            <img src="./media/logo ayto Garray.png" alt="Logo del ayuntamiento del Garray" height="80">
+            <img src="./media/logoTq.png" alt="Logo de la Asociación Celtibérica Tierraquemada" height="80">
+        </div>
+        <!--Redes Sociales-->
         <div class="footer-social-section">
             <h3>Sígenos en Redes Sociales</h3>
             <div class="footer-social-icons">
@@ -251,14 +416,15 @@
             </div>
 
         </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-            crossorigin="anonymous"></script>
-        <script src="./js/actualidad.js"></script>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script src="./js/interkeltoi.js"></script>
 </body>
 
 </html>
