@@ -994,35 +994,6 @@ video.imagen-articulo4 {
     }
 }
 
-
-
-@media (prefers-color-scheme: dark) {
-    .cuerpo {
-        background-color: #1a1a1a;
-    }
-
-    .container {
-        background-color: #2d2d2d;
-        color: #e0e0e0;
-    }
-
-    .texto-articulo4 {
-        color: #d0d0d0;
-    }
-
-    .info-item {
-        background: #3a3a3a;
-    }
-
-    .repertorio li,
-    .destacados-programa li {
-        background: #3a3a3a;
-        color: #e0e0e0;
-    }
-}
-
-
-
 @media print {
     .language-selector {
         display: none;
@@ -1080,4 +1051,3 @@ video.imagen-articulo4 {
     white-space: nowrap;
     border-width: 0;
 }
-
