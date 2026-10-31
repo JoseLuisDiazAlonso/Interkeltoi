@@ -397,7 +397,7 @@ body::after {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    padding: 40 20px;
+    padding: 40px 20px;
 }
 
 .carousel-title {
@@ -420,12 +420,22 @@ body::after {
 .carousel-track {
     display: flex;
     gap: 20px;
-    transition: transform 0.4s ease-in-out;
     width: 100%;
+    overflow-x: auto;               /* el track es el que hace scroll (lo usa scrollBy en el JS) */
+    overflow-y: hidden;
+    scroll-behavior: smooth;        /* desplazamiento animado al pulsar los botones */
+    scroll-snap-type: x mandatory;  /* cada vídeo encaja alineado al borde */
+    padding: 10px 0;                /* espacio para el hover y la sombra de los vídeos */
+    scrollbar-width: none;          /* oculta la barra en Firefox */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;                  /* oculta la barra en Chrome y Safari */
 }
 
 .video-item {
     position: relative;
+    scroll-snap-align: start;
     flex: 0 0 calc(33.333% - 14px);
     aspect-ratio: 16/9;
     border-radius: 12px;

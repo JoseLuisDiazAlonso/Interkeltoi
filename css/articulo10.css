@@ -169,28 +169,38 @@
     opacity: 1;
 }
 
-
-
-.imagen-articulo4 {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    display: block;
-    margin: 30px auto;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.galeria-articulo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: clamp(32px, 5vw, 48px);
 }
 
-.imagen-articulo4:hover {
-    transform: scale(1.02);
+.galeria-articulo .imagen-articulo4 {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 575px) {
+    .galeria-articulo {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Video específico */
+/* Video vertical: la caja se adapta a la forma del video */
 video.imagen-articulo4 {
-    max-height: 600px;
-    object-fit: cover;
+    width: auto;            /* anula el width: 100% de .imagen-articulo4 */
+    max-width: 100%;        /* nunca más ancho que el contenedor */
+    height: 80vh;           /* fallback para navegadores antiguos */
+    height: 80svh;          /* en móvil no cuenta la barra del navegador */
+    max-height: 700px;      /* tope en pantallas de escritorio muy altas */
+    aspect-ratio: 9 / 16;   /* proporción del video vertical */
+    object-fit: contain;    /* si la caja no encaja exacta, se ve entero */
+    background-color: #000; /* color de las franjas, si llegan a aparecer */
 }
 
 
