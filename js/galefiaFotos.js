@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 'fotoIrlanda11.jpg', 'fotoIrlanda13.jpg', 'fotoIrlanda15.jpg', 'fotoIrlandaEscopeta.jpg',
             ]
         },
+        {
+            title: 'Interkeltoi 2025',
+            folderPath: './media/Interkeltoi2025/',
+            images: [
+                'fotoInterkeltoi1.jpg', 'fotoInterkeltoi2.jpg', 'fotoInterkeltoi3.jpg', 'fotoInterkeltoi5.jpg',
+                'fotoInterkeltoi6.jpg', 'fotoInterkeltoi7.jpg', 'fotoInterkeltoi9.jpg', 'fotoInterkeltoi10.jpg',
+                'fotoInterkeltoi11.jpg', 
+            ]
+        },
     ];
 
     const albumContainer = document.getElementById('album-container');

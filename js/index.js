@@ -1,125 +1,356 @@
-// Gestión de Cookies
+// ============================================
+// GESTIÓN DE COOKIES
+// ============================================
 document.addEventListener('DOMContentLoaded', function () {
     const cookieConsent = document.getElementById('cookieConsent');
     const acceptCookies = document.getElementById('acceptCookies');
     const declineCookies = document.getElementById('declineCookies');
 
-    // Verificar si el usuario ya aceptó las cookies
+    // Si esta página no tiene banner de cookies, no hacemos nada
+    if (!cookieConsent || !acceptCookies || !declineCookies) return;
+
     if (!localStorage.getItem('cookiesAccepted')) {
         cookieConsent.style.display = 'block';
     }
 
-    // Aceptar cookies
     acceptCookies.addEventListener('click', function () {
         localStorage.setItem('cookiesAccepted', 'true');
         cookieConsent.style.display = 'none';
     });
 
-    // Rechazar cookies
     declineCookies.addEventListener('click', function () {
         cookieConsent.style.display = 'none';
     });
 });
 
-// Función para cambiar el idioma
+// ============================================
+// CAMBIO DE IDIOMA
+// ============================================
 function changeLanguage(lang) {
-    const elements = document.querySelectorAll('[data-en], [data-es]');
-    elements.forEach(element => {
+    document.querySelectorAll('[data-en], [data-es]').forEach(element => {
+        const texto = element.getAttribute(`data-${lang}`);
+        if (texto === null) return;
+
         if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            element.placeholder = element.getAttribute(`data-${lang}`);
+            element.placeholder = texto;
         } else {
-            element.textContent = element.getAttribute(`data-${lang}`);
+            element.textContent = texto;
         }
     });
 
-    // Guardar el idioma seleccionado
     localStorage.setItem('idioma', lang);
 
-    // Actualizar iconos
-    document.getElementById('en-icon').classList.toggle('active', lang === 'en');
-    document.getElementById('es-icon').classList.toggle('active', lang === 'es');
+    // Estado de los botones de idioma
+    const enIcon = document.getElementById('en-icon');
+    const esIcon = document.getElementById('es-icon');
+    if (enIcon && esIcon) {
+        enIcon.setAttribute('aria-pressed', String(lang === 'en'));
+        esIcon.setAttribute('aria-pressed', String(lang === 'es'));
+    }
+
+    document.documentElement.lang = lang;
 
     // Regenerar las cards con el nuevo idioma
     generarCards();
 }
 
 // Cargar el idioma guardado al iniciar la página
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function () {
     const savedLanguage = localStorage.getItem('idioma') || 'es';
     changeLanguage(savedLanguage);
-};
+});
 
-// Animación de elementos al hacer scroll (RESTAURADA)
+// ============================================
+// ANIMACIÓN AL HACER SCROLL
+// ============================================
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
-}, {
-    threshold: 0.1
-});
+}, { threshold: 0.1 });
 
-// Observar todos los elementos con clase 'reveal'
-document.querySelectorAll('.reveal').forEach(element => {
-    observer.observe(element);
-});
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
 
-// Carrusel de Videos
+// ============================================
+// CARRUSEL DE VÍDEOS
+// ============================================
 const carouselTrack = document.getElementById('carouselTrack');
 const prevBtn = document.getElementById('carouselPrev');
 const nextBtn = document.getElementById('carouselNext');
 const videoModal = document.getElementById('videoModal');
 const modalVideo = document.getElementById('modalVideo');
 const closeModal = document.getElementById('closeModal');
-
-let currentIndex = 0;
 const videoItems = document.querySelectorAll('.video-item');
-const totalVideos = videoItems.length;
 
-function updateCarousel() {
-    const offset = -currentIndex * 100;
-    carouselTrack.style.transform = `translateX(${offset}%)`;
+let ultimoVideoPulsado = null;   // para devolver el foco al cerrar el modal
+
+if (carouselTrack && prevBtn && nextBtn) {
+    // Desplaza el carrusel el ancho visible (1, 2 o 3 vídeos según la pantalla)
+    function moverCarrusel(direccion) {
+        carouselTrack.scrollBy({ left: direccion * carouselTrack.clientWidth });
+    }
+
+    prevBtn.addEventListener('click', () => moverCarrusel(-1));
+    nextBtn.addEventListener('click', () => moverCarrusel(1));
 }
 
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalVideos) % totalVideos;
-    updateCarousel();
-});
-
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalVideos;
-    updateCarousel();
-});
-
-// Modal de video
-videoItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        const videoSrc = item.querySelector('video').src;
-        modalVideo.src = videoSrc;
+if (videoModal && modalVideo && closeModal) {
+    function abrirModal(item) {
+        ultimoVideoPulsado = item;
+        // Quitamos "#t=0.1" para que el vídeo empiece desde el principio
+        modalVideo.src = item.querySelector('video').src.split('#')[0];
         videoModal.classList.add('active');
-        modalVideo.play();
-    });
-});
+        document.body.style.overflow = 'hidden';   // evita que la página se desplace detrás
+        closeModal.focus();
+        modalVideo.play().catch(error => {
+            if (error.name !== 'AbortError') console.error('Error al reproducir el vídeo:', error);
+        });
+    }
 
-closeModal.addEventListener('click', () => {
-    videoModal.classList.remove('active');
-    modalVideo.pause();
-    modalVideo.src = '';
-});
-
-videoModal.addEventListener('click', (e) => {
-    if (e.target === videoModal) {
+    function cerrarModal() {
         videoModal.classList.remove('active');
         modalVideo.pause();
-        modalVideo.src = '';
+        modalVideo.removeAttribute('src');
+        modalVideo.load();
+        document.body.style.overflow = '';
+        if (ultimoVideoPulsado) ultimoVideoPulsado.focus();
     }
-});
 
-// Array de artículos/noticias
+    videoItems.forEach(item => {
+        item.addEventListener('click', () => abrirModal(item));
+    });
+
+    closeModal.addEventListener('click', cerrarModal);
+
+    // Cerrar al pulsar fuera del vídeo
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) cerrarModal();
+    });
+
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) cerrarModal();
+    });
+}
+
+// ============================================
+// NOTICIAS
+// ============================================
+// - Card con imagen: usa "image".
+// - Card con vídeo: usa "video" (y opcionalmente "segundo" para elegir
+//   el fotograma que se ve como miniatura). Si hay "video", se usa el vídeo.
 const articles = [
     {
-        id:0,
+        id: 0,
+        title: {
+            es: "EL VERMÚ DE LAS 6 NACIONES",
+            en: "THE SIX NATIONS VERMOUTH-INTERKELTOI 2026"
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "1 de Noviembre 2026",
+            en: "November 1st 2026"
+        },
+        image: "./media/imagen20267.jpeg",
+        link: "./articulo23.html"
+    },
+    {
+        id: 1,
+        title: {
+            es: "EL VERMÚ DE LAS 6 NACIONES",
+            en: "THE SIX NATIONS VERMOUTH-INTERKELTOI 2026"
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "1 de Noviembre 2026",
+            en: "November 1st 2026"
+        },
+        image: "./media/milleanEscoces.jpeg",
+        link: "./articulo22.html"
+    },
+    {
+        id: 2,
+        title: {
+            es: "EL VERMÚ DE LAS 6 NACIONES",
+            en: "THE SIX NATIONS VERMOUTH-INTERKELTOI 2026"
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "1 de Noviembre 2026",
+            en: "November 1st 2026"
+        },
+        image: "./media/platoTradicionalIrlandes.jpeg",
+        link: "./articulo21.html"
+    },
+    {
+        id: 3,
+        title: {
+            es: "EL VERMÚ DE LAS 6 NACIONES",
+            en: "THE SIX NATIONS VERMOUTH-INTERKELTOI 2026"
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "1 de Noviembre 2026",
+            en: "November 1st 2026"
+        },
+        image: "./media/confitDePato.jpeg",
+        link: "./articulo20.html"
+    },
+    {
+        id: 4,
+        title: {
+            es: "LAS HISTORIAS DE NUMANCIA ESTÁN A PUNTO DE VOLVER A CONTARSE...",
+            en: "THE STORIES OF NUMANTIA ARE ABOUT TO BE TOLD ONCE AGAIN..."
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        image: "./media/imagen20268.jpeg",
+        link: "./articulo19.html"
+    },
+    {
+        id: 5,
+        title: {
+            es: "HAY NOCHES EN LAS QUE EL PASADO DESPIERTA.",
+            en: "THERE ARE NIGHTS WHEN THE PAST AWAKENS."
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        image: "./media/imagen20267.jpeg",
+        link: "./articulo18.html"
+    },
+    {
+        id: 6,
+        title: {
+            es: "CUANDO EL DIOS LUGH DESPIERTA, EL CUERPO SE CONVIERTE EN LEYENDA.",
+            en: "WHEN THE GOD LUGH AWAKENS, THE BODY BECOMES LEGEND."
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        video: "./media/video2026_5.mp4",
+        segundo: 5,
+        link: "./articulo17.html"
+    },
+    {
+        id: 7,
+        title: {
+            es:"CUANDO EL FUEGO DESPIERTA, LA TIERRA VUELVE A BAILAR.",
+            en: "WHEN THE FIRE AWAKENS, THE EARTH DANCES AGAIN.",
+        },
+        description: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+
+        },
+        image: "./media/foto2026_4.jpeg",
+        link: "./articulo16.html"
+
+    },   
+     {
+        id: 8,
+        title: {
+            es: "HAY DANZAS QUE NO SE APRENDEN. SE RECUERDAN.",
+            en: "SOME DANCES AREN'T LEARNED. THEY'RE REMEMBERED."
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        image: "./media/thumbnails/video2026_3.jpg",
+        link: "./articulo15.html"
+    },
+    {
+        id: 9,
+        title: {
+            es: "¡El Fuego de Numancia vuelve a sonar a folk atlántico!",
+            en: "The fire of Numantia rings out with Atlantic folk once again! "
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN 2026",
+            en: "INTERKELTOI-SAMAIN 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        image: "./media/LighthouseKeepers.jpeg",
+        link: "./articulo14.html"
+    },
+    {
+        id: 10,
+        title: {
+            es: "¡HEMOS VUELTO!",
+            en: "WE'RE BACK!"
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN vuelve en 2026",
+            en: "INTERKELTOI-SAMAIN returns in 2026"
+        },
+        date: {
+            es: "31 de Octubre 2026",
+            en: "October 31st 2026"
+        },
+        image: "./media/historiaEvento2.jpeg",
+        link: "./articulo13.html"
+    },
+    {
+        id: 11,
+        title: {
+            es: "ALGO ESTÁ A PUNTO DE DESPERTAR",
+            en: "SOMETHING IS ABOUT TO AWAKEN"
+        },
+        description: {
+            es: "INTERKELTOI-SAMAIN vuelve en 2026",
+            en: "INTERKELTOI-SAMAIN returns in 2026"
+        },
+        date: {
+            es: "31 de Octubre 2025",
+            en: "October 31st 2025"
+        },
+        image: "./media/articulo12img.jpeg",
+        link: "./articulo12.html"
+    },
+    {
+        id: 12,
         title: {
             es: "El Bosque de los Héroes",
             en: "The Forest of Heroes"
@@ -134,30 +365,26 @@ const articles = [
         },
         image: "./media/arbolSamain.jpg",
         link: "./articulo11.html"
-
     },
     {
-        id:1,
+        id: 13,
         title: {
             es: "IRISH TREBLE en Concierto",
             en: "IRISH TREBLE in Concert"
-
         },
         description: {
             es: "No te pierdas a las representantes irlandesas de Interkeltoi 2025 y sus bailes participativos al ritmo frenético de la música",
             en: "Don’t miss the Irish representatives of Interkeltoi 2025 and their participatory dances to the frenetic rhythm of the music"
-
         },
         date: {
             es: "31 de Octubre 2025, 22 horas",
             en: "October 31st, 2025"
-
         },
         image: "./media/thumbnails/videoMusical.png",
         link: "./articulo10.html"
     },
     {
-        id:2,
+        id: 14,
         title: {
             es: "TIC TAC",
             en: "TIC TAC"
@@ -172,10 +399,9 @@ const articles = [
         },
         image: "./media/thumbnails/videoInMyDreams.png",
         link: "./articulo9.html"
-
     },
     {
-        id:3,
+        id: 15,
         title: {
             es: "La Danza de Samain",
             en: "The Dance of Samain"
@@ -183,18 +409,16 @@ const articles = [
         description: {
             es: "Un viaje inmersivo a la Edad de los Metales",
             en: "An immersive journey to the Metal Age"
-
         },
         date: {
             es: "31 de Octubre, 2025",
             en: "October 31st, 2025"
-
         },
         image: "./media/thumbnails/videoDanza.png",
         link: "./articulo8.html"
     },
     {
-        id:4,
+        id: 16,
         title: {
             es: "Saukon",
             en: "Saucon"
@@ -211,10 +435,10 @@ const articles = [
         link: "./articulo7.html"
     },
     {
-        id:5,
+        id: 17,
         title: {
             es: "Desfile de Antorchas",
-            en: "Torch Parade",
+            en: "Torch Parade"
         },
         description: {
             es: "Una procesión mágica hacia el Nemetón",
@@ -228,7 +452,7 @@ const articles = [
         link: "./articulo6.html"
     },
     {
-        id:6,
+        id: 18,
         title: {
             es: "MARISA GERARDI",
             en: "MARISA GERARDI"
@@ -245,7 +469,7 @@ const articles = [
         link: "./articulo5.html"
     },
     {
-        id: 7,
+        id: 19,
         title: {
             es: "INTERKELTOI 2025",
             en: "INTERKELTOI 2025"
@@ -261,9 +485,8 @@ const articles = [
         image: "./media/samain_cartel2025.jpg",
         link: "./articulo1.html"
     },
-   
     {
-     id: 8,
+        id: 20,
         title: {
             es: "SAMAIN 2025",
             en: "SAMAIN 2025"
@@ -277,10 +500,10 @@ const articles = [
             en: "October 31st, 2025"
         },
         image: "./media/chainLeyendo.jpg",
-        link: "./articulo.html"  
+        link: "./articulo2.html"
     },
     {
-        id: 9,
+        id: 21,
         title: {
             es: "PROGRAMA COMPLETO INTERKELTOI 2025",
             en: "COMPLETE PROGRAM INTERKELTOI 2025"
@@ -297,7 +520,7 @@ const articles = [
         link: "./articulo3.html"
     },
     {
-        id: 10,
+        id: 22,
         title: {
             es: "JOHN STEWART - El Gaitero Escocés",
             en: "JOHN STEWART - The Scottish Piper"
@@ -315,152 +538,100 @@ const articles = [
     }
 ];
 
-// Función para generar las cards dinámicamente
+let currentCardIndex = 0;
+const updatesContainer = document.querySelector('.updates-carousel-container');
+
+// Segundo por defecto para las miniaturas de vídeo (evita el primer fotograma en negro)
+const SEGUNDO_MINIATURA = 0.5;
+
+// Devuelve la miniatura de la card: <video> si tiene vídeo, <img> si no
+function crearMiniatura(article) {
+    if (article.video) {
+        const segundo = article.segundo ?? SEGUNDO_MINIATURA;
+        const src = article.video.includes('#')
+            ? article.video
+            : `${article.video}#t=${segundo}`;
+
+        return `<video src="${src}" preload="metadata" muted playsinline
+                       disablepictureinpicture aria-hidden="true"
+                       style="width: 100%; height: 100%; object-fit: cover; pointer-events: none; display: block;">
+                </video>`;
+    }
+
+    return `<img src="${article.image}" alt="" loading="lazy">`;
+}
+
+// Generar las cards de noticias
 function generarCards() {
     const track = document.getElementById('carousel-recorrido');
     const dots = document.getElementById('carousel-datos');
     const currentLang = localStorage.getItem('idioma') || 'es';
-    
+
+    // Si esta página no tiene carrusel de noticias, no hacemos nada
     if (!track || !dots) return;
-    
+
     track.innerHTML = '';
     dots.innerHTML = '';
-    
+
     articles.forEach((article, index) => {
-        // Crear la card manteniendo la estructura exacta del CSS
-        const card = document.createElement('div');
+        // La card es un enlace: funciona con teclado, clic central, etc.
+        const card = document.createElement('a');
         card.className = 'update-card';
-        card.style.cursor = 'pointer';
+        card.href = article.link;
+        card.target = '_blank';
+        card.rel = 'noopener';
         card.innerHTML = `
             <div class="update-card-image">
-                <img src="${article.image}" alt="${article.title[currentLang]}">
+                ${crearMiniatura(article)}
             </div>
             <div class="update-card-content">
                 <div class="update-card-date">${article.date[currentLang]}</div>
                 <h3 class="update-card-title">${article.title[currentLang]}</h3>
                 <p class="update-card-description">${article.description[currentLang]}</p>
-                <span class="update-card-link">Leer más →</span>
+                <span class="update-card-link">${currentLang === 'en' ? 'Read more →' : 'Leer más →'}</span>
             </div>
         `;
-        
-        // Añadir evento click para abrir en nueva pestaña
-        card.addEventListener('click', () => {
-            window.open(article.link, '_blank');
-        });
-        
         track.appendChild(card);
-        
-        // Crear dot de navegación
-        const dot = document.createElement('span');
-        dot.className = index === 0 ? 'carousel-dot active' : 'carousel-dot';
+
+        // Punto de navegación
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = index === currentCardIndex ? 'carousel-dot active' : 'carousel-dot';
+        dot.setAttribute('aria-label', `${currentLang === 'en' ? 'Go to news' : 'Ir a la noticia'} ${index + 1}`);
         dot.addEventListener('click', () => scrollToCard(index));
         dots.appendChild(dot);
     });
 }
 
-// Navegación del carousel de noticias
-let currentCardIndex = 0;
-
-function scrollToCard(index) {
-    const track = document.getElementById('carousel-recorrido');
-    const dots = document.querySelectorAll('.carousel-dot');
-    const cards = document.querySelectorAll('.update-card');
-    
-    if (cards.length === 0) return;
-    
-    currentCardIndex = index;
-    
-    // Calcular el desplazamiento basado en el ancho de la card más el gap
-    const cardWidth = cards[0].offsetWidth;
-    const gap = 20; // Gap definido en el CSS
-    const offset = index * (cardWidth + gap);
-    
-    track.style.transform = `translateX(-${offset}px)`;
-    
-    // Actualizar dots activos
-    dots.forEach((dot, i) => {
+function actualizarDots(index) {
+    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
 }
 
-// Botones de navegación del carousel de noticias
-document.getElementById('updatesPrev')?.addEventListener('click', () => {
-    const totalCards = articles.length;
-    currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-    scrollToCard(currentCardIndex);
-});
+// Desplaza el contenedor hasta la card indicada
+function scrollToCard(index) {
+    const cards = document.querySelectorAll('.update-card');
+    if (!updatesContainer || !cards[index]) return;
+    updatesContainer.scrollTo({ left: cards[index].offsetLeft - cards[0].offsetLeft });
+}
 
-document.getElementById('updatesNext')?.addEventListener('click', () => {
-    const totalCards = articles.length;
-    currentCardIndex = (currentCardIndex + 1) % totalCards;
-    scrollToCard(currentCardIndex);
-});
-
-// Generar las cards al cargar la página
-document.addEventListener('DOMContentLoaded', generarCards);
-
-// ============================================
-// NAVBAR RESPONSIVE
-// ============================================
-(function() {
-    const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarNav = document.querySelector('.navbar-nav');
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
-    // Crear overlay
-    let overlay = document.createElement('div');
-    overlay.className = 'navbar-overlay';
-    document.body.appendChild(overlay);
-
-    // Abrir/cerrar menú
-    if (navbarToggle) {
-        navbarToggle.addEventListener('click', function() {
-            navbarNav.classList.toggle('active');
-            navbarToggle.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = navbarNav.classList.contains('active') ? 'hidden' : '';
-        });
-    }
-
-    // Cerrar con overlay
-    overlay.addEventListener('click', function() {
-        navbarNav.classList.remove('active');
-        navbarToggle.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
+if (updatesContainer) {
+    // Al hacer scroll (dedo, trackpad o botones), calcula qué card está al inicio
+    updatesContainer.addEventListener('scroll', () => {
+        const cards = document.querySelectorAll('.update-card');
+        if (cards.length < 2) return;
+        const paso = cards[1].offsetLeft - cards[0].offsetLeft;
+        currentCardIndex = Math.round(updatesContainer.scrollLeft / paso);
+        actualizarDots(currentCardIndex);
     });
 
-    // Cerrar al hacer click en link
-    navbarNav.querySelectorAll('.nav-link:not(.dropdown-toggle)').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-                setTimeout(() => {
-                    navbarNav.classList.remove('active');
-                    navbarToggle.classList.remove('active');
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }, 300);
-            }
-        });
+    document.getElementById('updatesPrev')?.addEventListener('click', () => {
+        scrollToCard(currentCardIndex === 0 ? articles.length - 1 : currentCardIndex - 1);
     });
 
-    // Dropdowns en móvil
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                this.closest('.dropdown').classList.toggle('active');
-            }
-        });
+    document.getElementById('updatesNext')?.addEventListener('click', () => {
+        const alFinal = updatesContainer.scrollLeft + updatesContainer.clientWidth >= updatesContainer.scrollWidth - 1;
+        scrollToCard(alFinal ? 0 : currentCardIndex + 1);
     });
-
-    // Cerrar al cambiar tamaño
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            navbarNav.classList.remove('active');
-            navbarToggle.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-})();
+}
